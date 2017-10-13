@@ -21,7 +21,7 @@ namespace QuanLyQuanCafe.DTO
                 _idAccount = value;
             }
         }
-
+         //sdfjdsf
 
         private string _name;
         public string Name

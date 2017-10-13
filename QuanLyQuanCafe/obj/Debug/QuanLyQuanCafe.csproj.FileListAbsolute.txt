@@ -92,3 +92,6 @@ D:\HK1-2017-2018\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.frmMain.
 D:\HK1-2017-2018\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.Properties.Resources.resources
 D:\HK1-2017-2018\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.csproj.GenerateResource.Cache
 D:\HK1-2017-2018\QuanLyQuanCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.exe.licenses
+C:\Users\hp\Documents\GitHub\QuanLyCafe\QuanLyQuanCafe\bin\Debug\QuanLyQuanCafe.exe.config
+C:\Users\hp\Documents\GitHub\QuanLyCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.exe
+C:\Users\hp\Documents\GitHub\QuanLyCafe\QuanLyQuanCafe\obj\Debug\QuanLyQuanCafe.pdb

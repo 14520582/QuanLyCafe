@@ -34,14 +34,16 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageBan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageThucDon = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageHoaDon = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonHoaDon = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,9 +55,10 @@
             this.barButtonItem1,
             this.barButtonGroup1,
             this.barButtonItem2,
-            this.barButtonItem5});
+            this.barButtonItem5,
+            this.barButtonHoaDon});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 8;
+            this.ribbon.MaxItemId = 9;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -95,20 +98,26 @@
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
-            this.ribbonPageGroup3});
+            this.ribbonPageBan,
+            this.ribbonPageThucDon,
+            this.ribbonPageHoaDon});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Nghiệp Vụ";
             // 
-            // ribbonPageGroup1
+            // ribbonPageBan
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageBan.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageBan.Name = "ribbonPageBan";
             // 
-            // ribbonPageGroup3
+            // ribbonPageThucDon
             // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem5);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageThucDon.ItemLinks.Add(this.barButtonItem5);
+            this.ribbonPageThucDon.Name = "ribbonPageThucDon";
+            // 
+            // ribbonPageHoaDon
+            // 
+            this.ribbonPageHoaDon.ItemLinks.Add(this.barButtonHoaDon);
+            this.ribbonPageHoaDon.Name = "ribbonPageHoaDon";
             // 
             // ribbonPage2
             // 
@@ -149,6 +158,12 @@
             this.barButtonItem4.LargeGlyph = global::QuanLyQuanCafe.Properties.Resources.drinks_icon;
             this.barButtonItem4.Name = "barButtonItem4";
             // 
+            // barButtonHoaDon
+            // 
+            this.barButtonHoaDon.Caption = "Hóa Đơn";
+            this.barButtonHoaDon.Id = 8;
+            this.barButtonHoaDon.Name = "barButtonHoaDon";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,7 +185,7 @@
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageBan;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonGroup barButtonGroup1;
@@ -179,8 +194,10 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageThucDon;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageHoaDon;
+        private DevExpress.XtraBars.BarButtonItem barButtonHoaDon;
     }
 }

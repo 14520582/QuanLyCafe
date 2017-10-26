@@ -9,28 +9,71 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 
-namespace QuanLyQuanCafe
+namespace QuanLyQuanCafe.VIEW
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         public frmMain()
         {
             InitializeComponent();
+            Form dn = new frmLogin();
+            dn.ShowDialog();
         }
         //public void skins()
         //{
         //    DevExpress.LookAndFeel.DefaultLookAndFeel themes = new DevExpress.LookAndFeel.DefaultLookAndFeel();
         //    themes.LookAndFeel.SkinName = "Valentine";
         //}
-
-        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        public Form IsActive(Type type)
         {
-
+            foreach (var f in this.MdiChildren)
+            {
+                if (f.GetType() == type)
+                    return f;
+            }
+            return null;
         }
 
-        private void tabHienThi_Paint(object sender, PaintEventArgs e)
+        private void btnHoaDon_ItemClick(object sender, ItemClickEventArgs e)
         {
+            Form f = IsActive(typeof(frmInvoice));
 
+            if (f != null)
+                f.Activate();
+            else
+            {
+                f = new frmInvoice();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnQLBan_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = IsActive(typeof(frmTable));
+
+            if (f != null)
+                f.Activate();
+            else
+            {
+                f = new frmTable();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnMenu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = IsActive(typeof(frmMenu));
+
+            if (f != null)
+                f.Activate();
+            else
+            {
+                f = new frmMenu();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }

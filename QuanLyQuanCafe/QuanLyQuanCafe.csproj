@@ -57,8 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\LOGIN_BUS.cs" />
+    <Compile Include="BUS\Table_BUS.cs" />
     <Compile Include="DAO\LOGIN_DAO.cs" />
+    <Compile Include="DAO\Table_DAO.cs" />
     <Compile Include="DTO\LOGIN_DTO.cs" />
+    <Compile Include="DTO\Table_DTO.cs" />
     <Compile Include="VIEW\frmInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +115,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VIEW\frmTable.resx">
+      <DependentUpon>frmTable.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -145,6 +151,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Picture\b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Picture\back-arrow.png" />
+    <Content Include="Picture\delete.png" />
+    <Content Include="Picture\plus.png" />
+    <Content Include="Picture\save.png" />
+    <Content Include="Picture\tablecafe.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

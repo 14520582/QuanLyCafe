@@ -10,7 +10,8 @@ namespace QuanLyQuanCafe.DTO
     {
         private int _idTable;
         private String _name;
-        private int _status;
+        private String _location;
+        private string _status;
 
         public int IdTable
         {
@@ -38,7 +39,7 @@ namespace QuanLyQuanCafe.DTO
             }
         }
 
-        public int Status
+        public string Status
         {
             get
             {
@@ -50,9 +51,24 @@ namespace QuanLyQuanCafe.DTO
                 _status = value;
             }
         }
-        public Table_DTO(string name, int status)
+
+        public string Location
+        {
+            get
+            {
+                return _location;
+            }
+
+            set
+            {
+                _location = value;
+            }
+        }
+
+        public Table_DTO(string name, string location, string status)
         {
             Name = name;
+            Location = location;
             Status = status;
         }
     }

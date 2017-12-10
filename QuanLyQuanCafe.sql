@@ -27,7 +27,8 @@ CREATE TABLE TableCafe
 (
 	IdTable INT primary key identity(1,1),
 	Name NVARCHAR(100),
-	Status INT NOT NULL DEFAULT 0 --0:chua dat  1: Da dat
+	Location NVARCHAR(200),
+	Status NVARCHAR(20)
 )
 GO
 --FoodCategory
@@ -102,14 +103,43 @@ begin
 	select * from TableCafe
 end
 go
+--Kiểm tra tên bàn hợp lệ
+CREATE PROC CheckValidTable
+@Name nvarchar(100),
+@Result int output
+as
+begin
+	if exists (select * from TableCafe where Name = @Name)
+		begin
+			set @Result = 0
+		end
+		else
+			begin
+				set @Result = 1
+			end
+end
+GO
 --Thêm bàn
 create proc AddTable
 @Name nvarchar(100),
-@Status nvarchar(4)
+@Status nvarchar(20),
+@Location nvarchar(200)
 AS
 BEGIN
-	insert into TableCafe(Name, Status) values(@Name, @Status)
+	insert into TableCafe(Name, Location, Status) values(@Name, @Location,@Status)
 END
+GO
+--Sửa bàn
+create proc EditTable
+@Idtable int,
+@Name nvarchar(100),
+@Location nvarchar(200),
+@Status nvarchar(20)
+as
+begin
+	update TableCafe set Name = @Name, Location = @Location, Status = @Status
+	where IdTable = @Idtable
+end
 go
 --Xóa bàn
 create proc DeleteTable
@@ -117,6 +147,14 @@ create proc DeleteTable
 as
 begin
 	delete TableCafe where Idtable = @Idtable
+end
+go
+--Đếm bàn
+create proc CountTable
+@Number int output
+as
+begin
+	set @Number = (select Count(Name) from TableCafe) 
 end
 go
 --MÓN ĂN

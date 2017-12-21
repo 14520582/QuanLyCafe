@@ -16,5 +16,30 @@ namespace QuanLyQuanCafe.VIEW
         {
             InitializeComponent();
         }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelX1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -62,10 +62,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\BillDetails_BUS.cs" />
+    <Compile Include="BUS\BillTable_BUS.cs" />
+    <Compile Include="BUS\Bill_BUS.cs" />
     <Compile Include="BUS\LOGIN_BUS.cs" />
     <Compile Include="BUS\Table_BUS.cs" />
+    <Compile Include="DAO\BillDetails_DAO.cs" />
+    <Compile Include="DAO\BillTable_DAO.cs" />
+    <Compile Include="DAO\Bill_DAO.cs" />
     <Compile Include="DAO\LOGIN_DAO.cs" />
     <Compile Include="DAO\Table_DAO.cs" />
+    <Compile Include="DTO\BillDetails_DTO.cs" />
+    <Compile Include="DTO\BillTable_DTO.cs" />
+    <Compile Include="DTO\Bill_DTO.cs" />
     <Compile Include="DTO\LOGIN_DTO.cs" />
     <Compile Include="DTO\Table_DTO.cs" />
     <Compile Include="VIEW\frmInvoice.cs">

@@ -1,6 +1,6 @@
 ﻿CREATE DATABASE QuanLyQuanCafe
 GO
-
+SET DATEFORMAT dmy;
 USE QuanLyQuanCafe
 GO
 --đăng nhập tài khoản
@@ -29,6 +29,14 @@ CREATE TABLE TableCafe
 	Name NVARCHAR(100),
 	Location NVARCHAR(200),
 	Status NVARCHAR(20)
+	--Status INT NOT NULL DEFAULT 0 --0: trong 1: co nguoi
+)
+GO
+--Unit
+CREATE TABLE Unit
+(
+	IdUnit INT primary key identity(1,1),
+	Name NVARCHAR(100) NOT NULL,
 )
 GO
 --FoodCategory
@@ -44,12 +52,13 @@ CREATE TABLE Food
 	IdFood INT primary key identity(1,1),
 	Name NVARCHAR(100) NOT NULL,
 	IdCategory INT NOT NULL,
-	Price FLOAT NOT NULL
+	IdUnit INT NOT NULL,
+	Price INT NOT NULL
 
-	FOREIGN KEY (IdCategory) REFERENCES FoodCategory(IdCategory)
+	FOREIGN KEY (IdCategory) REFERENCES FoodCategory(IdCategory),
+	FOREIGN KEY (IdUnit) REFERENCES Unit(IdUnit)
 )
 GO
-
 --Account
 CREATE TABLE Account
 (
@@ -64,11 +73,8 @@ CREATE TABLE Bill
 (
 	IdBill INT primary key identity(1,1),
 	Date DATE,
-	IdTable INT NOT NULL,
-	TotalPrice int NOT NULL,
+	TotalPrice INT NOT NULL,
 	Status INT NOT NULL DEFAULT 0 --0: chua thanh toan 1: Da Thanh Toan
-
-	FOREIGN KEY (IdTable) REFERENCES TableCafe(IdTable)
 )
 GO
 --BillInfo
@@ -77,24 +83,111 @@ CREATE TABLE BillInFo
 	Id INT primary key identity(1,1),
 	IdBill INT NOT NULL,
 	IdFood INT NOT NULL,
-	Number INT NOT NULL DEFAULT 0,
-	TotalPrice int NOT NULL
+	Number INT NOT NULL DEFAULT 0
 
 	FOREIGN KEY (IdBill) REFERENCES Bill(IdBill),
 	FOREIGN KEY (IdFood) REFERENCES Food(IdFood)
 )
 GO
+--BillTable
+CREATE TABLE BillTable
+(
+	Id INT primary key identity(1,1),
+	IdBill INT NOT NULL,
+	IdTable INT NOT NULL,
 
-INSERT INTO dbo.Account
-		( Name,
-		  PassWord,
-		  Type		
-		)
-VALUES (N'TRAM',
-		N'TRAM',
-		0
-		)
+	FOREIGN KEY (IdBill) REFERENCES Bill(IdBill),
+	FOREIGN KEY (IdTable) REFERENCES TableCafe(IdTable)
+)
 GO
+INSERT INTO dbo.Account ( Name,PassWord,Type) VALUES (N'TRAM',N'TRAM',0)
+GO
+INSERT INTO dbo.FoodCategory ( Name) VALUES (N'Sinh tố')
+GO
+INSERT INTO dbo.FoodCategory ( Name) VALUES (N'Mojito')
+GO
+GO
+INSERT INTO dbo.FoodCategory ( Name) VALUES (N'Cà phê')
+GO
+INSERT INTO dbo.FoodCategory ( Name) VALUES (N'Bánh Ngọt')
+GO
+GO
+INSERT INTO dbo.Unit ( Name) VALUES (N'Ly')
+GO
+INSERT INTO dbo.Unit ( Name) VALUES (N'Hộp')
+GO
+INSERT INTO dbo.Food ( Name,IdCategory,IdUnit,Price) VALUES (N'Sinh tố Bơ',1,1,15000)
+GO
+INSERT INTO dbo.Food ( Name,IdCategory,IdUnit,Price) VALUES (N'Sinh tố Mãng Cầu',1,1,15000)
+GO
+INSERT INTO dbo.Food ( Name,IdCategory,IdUnit,Price) VALUES (N'Mojito Chanh Dây',2,1,18000)
+GO
+INSERT INTO dbo.Food ( Name,IdCategory,IdUnit,Price) VALUES (N'Cà phê sữa',3,1,14000)
+GO
+INSERT INTO dbo.Food ( Name,IdCategory,IdUnit,Price) VALUES (N'Bánh Su kem',4,2,30000)
+GO
+INSERT INTO dbo.TableCafe( Name,Location,Status) VALUES (N'01',N'Ngoài sân',0)
+GO
+INSERT INTO dbo.TableCafe( Name,Location,Status) VALUES (N'02',N'Ngoài sân',0)
+GO
+INSERT INTO dbo.TableCafe( Name,Location,Status) VALUES (N'03',N'Trong nhà',0)
+GO
+INSERT INTO dbo.TableCafe( Name,Location,Status) VALUES (N'04',N'Trong nhà',0)
+GO
+INSERT INTO dbo.Bill ( Date,TotalPrice,Status) VALUES ('24-07-2017',30000,1)
+GO
+--BeginBillInfo
+INSERT INTO dbo.BillTable ( IdBill,IdTable) VALUES (1,1)
+GO
+INSERT INTO dbo.BillInfo ( IdBill,IdFood,Number) VALUES (1,1,1)
+GO
+INSERT INTO dbo.BillInfo ( IdBill,IdFood,Number) VALUES (1,2,1)
+GO
+--EndBillInfo
+INSERT INTO dbo.Bill ( Date,TotalPrice,Status) VALUES ('26-08-2017',59000,1)
+GO
+--BeginBillInfo
+INSERT INTO dbo.BillTable ( IdBill,IdTable) VALUES (2,2)
+GO
+INSERT INTO dbo.BillInfo ( IdBill,IdFood,Number) VALUES (2,2,1)
+GO
+INSERT INTO dbo.BillInfo ( IdBill,IdFood,Number) VALUES (2,4,1)
+GO
+INSERT INTO dbo.BillInfo ( IdBill,IdFood,Number) VALUES (2,5,1)
+GO
+--EndBillInfo
+INSERT INTO dbo.Bill ( Date,TotalPrice,Status) VALUES ('12-09-2017',48000,1)
+GO
+--BeginBillInfo
+INSERT INTO dbo.BillTable ( IdBill,IdTable) VALUES (3,3)
+GO
+INSERT INTO dbo.BillInfo ( IdBill,IdFood,Number) VALUES (3,2,2)
+GO
+INSERT INTO dbo.BillInfo ( IdBill,IdFood,Number) VALUES (3,3,1)
+GO
+--EndBillInfo
+INSERT INTO dbo.Bill ( Date,TotalPrice,Status) VALUES ('01-11-2017',60000,1)
+GO
+--BeginBillInfo
+INSERT INTO dbo.BillTable ( IdBill,IdTable) VALUES (4,1)
+GO
+INSERT INTO dbo.BillTable ( IdBill,IdTable) VALUES (4,2)
+GO
+INSERT INTO dbo.BillInfo ( IdBill,IdFood,Number) VALUES (4,1,1)
+GO
+INSERT INTO dbo.BillInfo ( IdBill,IdFood,Number) VALUES (4,3,1)
+GO
+INSERT INTO dbo.BillInfo ( IdBill,IdFood,Number) VALUES (4,5,1)
+GO
+--EndBillInfo
+INSERT INTO dbo.Bill ( Date,TotalPrice,Status) VALUES ('12-12-2017',36000,1)
+GO
+--BeginBillInfo
+INSERT INTO dbo.BillTable ( IdBill,IdTable) VALUES (5,1)
+GO
+INSERT INTO dbo.BillInfo ( IdBill,IdFood,Number) VALUES (5,3,2)
+GO
+--EndBillInfo
 --BÀN
 --Load bàn
 create proc LoadTable
@@ -204,51 +297,62 @@ end
 go
 --HOADON va CTHD
 --Load hoa don
-create proc LoadBill
+create proc LoadAllBill
+as
+begin
+	select * from Bill
+end
+go
+--Load hoa don
+create proc LoadBillByIdTable
 @IdTable int
 as
 begin
-	select Date,IdTable,TotalPrice,Status from Bill
-	where IdTable = @IdTable
+	select b.IdBill, b.Date, b.TotalPrice, b.Status from BillTable a, Bill b
+	where a.IdTable = @IdTable and a.IdBill = b.IdBill and b.Status = 0
 end
 go
---Load chi tiet hoa don
-create proc LoadBillInfo
+--Load chi tiet hoa don theo bill
+create proc LoadBillInfoByIdBill
 @IdBill int
 as
 begin
-	select Food.Name, Number, Price
+	select BillInfo.Id, BillInfo.IdBill, Food.Name as FoodName, Number, Price*Number as Total
 	from Food, BillInFo
 	where Food.IdFood = BillInFo.IdFood
 	and BillInFo.IdBill = @IdBill
 end
 go
+--Load tat ca chi tiet hoa don
+create proc LoadAllBillInfo
+as
+begin
+	select BillInfo.Id, BillInfo.IdBill, Food.Name as FoodName, Number, Price*Number as Total
+	from Food, BillInFo
+	where Food.IdFood = BillInFo.IdFood
+end
+go
+--Load tat ca chi tiet ban cua hoa don
+create proc LoadAllBillTable
+as
+begin
+	select BillTable.Id, BillTable.IdBill, TableCafe.IdTable, TableCafe.Name
+	from TableCafe, BillTable
+	where TableCafe.IdTable = BillTable.IdTable
+end
+go
 --Them chi tiet hoa don
 create proc AddBillInfo
-@IdTable int
+@IdTable int,
+@IdFood int,
+@Number int
 as
 begin
 
-		insert into BillInfo(IdBill,IdFood,Number,TotalPrice)
-		select BillInFo.IdBill, BillInFo.IdFood, BillInfo.Number, (select sum(BillInfo.Number * Food.Price) from BillInFo, Food, Bill where BillInfo.IdFood = Food.IdFood)																																 																																			   
-		from Bill, Food, BillInfo
-		where Bill.IdBill = BillInfo.IdBill
-		and Food.IdFood = BillInfo.IdFood
-		and Bill.IdTable = @IdTable
+		insert into BillInfo(IdBill,IdFood,Number) values (@IdTable,@IdFood,@Number)
 end
 go
 --Tao hoa don
-create proc CreateBill
-@IdTable int
-as
-begin
-		insert into Bill(Date,IdTable,TotalPrice, Status) values ((select Date from Bill), @IdTable, (select sum(BillInfo.Number * Food.Price) from BillInFo, Food, Bill
-																																			 where Bill.IdBill = BillInFo.IdBill
-																																			 and BillInfo.IdFood = Food.IdFood
-																																			 and Bill.IdTable = @IdTable
-																																			 group by IdTable), (select Status from Bill))
-end
-go
 --TÌM KIẾM
 --Tìm theo tên món ăn
 create proc FindByNameOfFood
@@ -294,7 +398,7 @@ create proc DailyReport
 @LastDay smalldatetime
 as
 begin
-	select Date, count(IdTable), SUM(TotalPrice) 
+	select Date, SUM(TotalPrice) 
 	from Bill
 	where DATEDIFF(month,@FirstDay,Date) >=0 and DATEDIFF(month,@LastDay,Date) <= 0
 	group by Date

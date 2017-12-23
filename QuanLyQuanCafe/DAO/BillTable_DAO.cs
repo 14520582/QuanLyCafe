@@ -19,5 +19,19 @@ namespace QuanLyQuanCafe.DAO
             da.Fill(dtb);
             return dtb;
         }
+        public static DataTable FindBillTableByDate(DateTime fromDate, DateTime toDate)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("FindBillTableByDate", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@fromDate", SqlDbType.Date);
+            cmd.Parameters.Add("@toDate", SqlDbType.Date);
+            cmd.Parameters["@fromDate"].Value = fromDate.ToShortDateString();
+            cmd.Parameters["@toDate"].Value = toDate.ToShortDateString();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtb = new DataTable();
+            da.Fill(dtb);
+            return dtb;
+        }
     }
 }

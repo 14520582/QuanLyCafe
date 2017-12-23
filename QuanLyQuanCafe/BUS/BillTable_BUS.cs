@@ -13,5 +13,9 @@ namespace QuanLyQuanCafe.BUS
         {
             return BillTable_DAO.LoadAllBillTable();
         }
+        public static DataTable FindBillTableByDate(DateTime fromDate, DateTime toDate)
+        {
+            return BillTable_DAO.FindBillTableByDate(fromDate, toDate);
+        }
     }
 }

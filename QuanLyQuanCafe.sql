@@ -28,8 +28,8 @@ CREATE TABLE TableCafe
 	IdTable INT primary key identity(1,1),
 	Name NVARCHAR(100),
 	Location NVARCHAR(200),
-	Status NVARCHAR(20)
-	--Status INT NOT NULL DEFAULT 0 --0: trong 1: co nguoi
+	--Status NVARCHAR(20)
+	Status INT NOT NULL DEFAULT 0 --0: trong 1: co nguoi
 )
 GO
 --Unit
@@ -341,6 +341,39 @@ begin
 	where TableCafe.IdTable = BillTable.IdTable
 end
 go
+--Load tat ca hoa don theo khoang ngay
+create proc FindBillByDate
+@fromDate Date,
+@toDate Date
+as
+begin
+	SET DATEFORMAT dmy; select * from Bill where Bill.Date >= @fromDate and Bill.Date <= @toDate
+end
+go
+--Load tat ca chi tiet hoa don theo khoang ngay
+create proc FindBillInfoByDate
+@fromDate Date,
+@toDate Date
+as
+begin
+	SET DATEFORMAT dmy;
+	select BillInfo.Id, BillInfo.IdBill, Food.Name as FoodName, Number, Price*Number as Total
+	from Food, BillInFo
+	where Food.IdFood = BillInFo.IdFood and exists  (select * from Bill where Bill.IdBill = BillInfo.IdBill and Bill.Date >= @fromDate and Bill.Date <= @toDate)
+end
+go
+--Load tat ca chi tiet ban cua hoa don theo ngay
+create proc FindBillTableByDate
+@fromDate Date,
+@toDate Date
+as
+begin
+	SET DATEFORMAT dmy;
+	select BillTable.Id, BillTable.IdBill, TableCafe.IdTable, TableCafe.Name
+	from TableCafe, BillTable
+	where TableCafe.IdTable = BillTable.IdTable and exists  (select * from Bill where Bill.IdBill = BillTable.IdBill and Bill.Date >= @fromDate and Bill.Date <= @toDate)
+end
+go
 --Them chi tiet hoa don
 create proc AddBillInfo
 @IdTable int,
@@ -366,7 +399,7 @@ begin
 end
 go
 --tìm chi tiết hóa đơn theo ngày
-create proc FindBillInfoByDate
+create proc FindBillInfoByDate1
 @Date smalldatetime
 as
 begin

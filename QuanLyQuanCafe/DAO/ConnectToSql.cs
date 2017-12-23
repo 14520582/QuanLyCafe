@@ -15,7 +15,7 @@ namespace QuanLyQuanCafe.DAO
         
         public static SqlConnection Connect()
         {
-            connect = @"Data Source=dell\sqlexpress2008;Initial Catalog=QuanLyQuanCafe;Integrated Security=True";
+            connect = @"Data Source=.;Initial Catalog=QuanLyQuanCafe;Integrated Security=True";
             SqlConnection cnn = new SqlConnection(connect);
                       
             return cnn;

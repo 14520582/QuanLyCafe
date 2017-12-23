@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInvoice));
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dgvBill = new DevExpress.XtraGrid.GridControl();
@@ -37,12 +38,14 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.refreshButton = new DevExpress.XtraEditors.SimpleButton();
+            this.searchButton = new DevExpress.XtraEditors.SimpleButton();
+            this.exportButton = new DevExpress.XtraEditors.SimpleButton();
+            this.toDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.fromDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -136,11 +139,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.simpleButton2);
-            this.groupBox1.Controls.Add(this.simpleButton1);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.refreshButton);
+            this.groupBox1.Controls.Add(this.searchButton);
+            this.groupBox1.Controls.Add(this.exportButton);
+            this.groupBox1.Controls.Add(this.toDate);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.fromDate);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -149,31 +153,42 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // simpleButton2
+            // refreshButton
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(327, 18);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton2.TabIndex = 5;
-            this.simpleButton2.Text = "Tìm";
+            this.refreshButton.Image = ((System.Drawing.Image)(resources.GetObject("refreshButton.Image")));
+            this.refreshButton.Location = new System.Drawing.Point(304, 18);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(26, 23);
+            this.refreshButton.TabIndex = 6;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
-            // simpleButton1
+            // searchButton
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(418, 18);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 4;
-            this.simpleButton1.Text = "Xuất ra Excel";
+            this.searchButton.Location = new System.Drawing.Point(356, 18);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 5;
+            this.searchButton.Text = "Tìm";
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // dateTimePicker2
+            // exportButton
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(192, 19);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(106, 21);
-            this.dateTimePicker2.TabIndex = 3;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.exportButton.Location = new System.Drawing.Point(437, 18);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(75, 23);
+            this.exportButton.TabIndex = 4;
+            this.exportButton.Text = "Xuất ra Excel";
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
+            // 
+            // toDate
+            // 
+            this.toDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.toDate.Location = new System.Drawing.Point(192, 19);
+            this.toDate.Name = "toDate";
+            this.toDate.Size = new System.Drawing.Size(106, 21);
+            this.toDate.TabIndex = 3;
+            this.toDate.ValueChanged += new System.EventHandler(this.toDate_ValueChanged);
             // 
             // label2
             // 
@@ -185,14 +200,15 @@
             this.label2.Text = "Đến";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // dateTimePicker1
+            // fromDate
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(39, 19);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(106, 21);
-            this.dateTimePicker1.TabIndex = 1;
+            this.fromDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fromDate.Location = new System.Drawing.Point(39, 19);
+            this.fromDate.Name = "fromDate";
+            this.fromDate.Size = new System.Drawing.Size(106, 21);
+            this.fromDate.TabIndex = 1;
+            this.fromDate.ValueChanged += new System.EventHandler(this.fromDate_ValueChanged);
             // 
             // label1
             // 
@@ -226,11 +242,11 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker toDate;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private System.Windows.Forms.DateTimePicker fromDate;
+        private DevExpress.XtraEditors.SimpleButton searchButton;
+        private DevExpress.XtraEditors.SimpleButton exportButton;
         private DevExpress.XtraGrid.GridControl dgvBill;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
@@ -239,5 +255,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraEditors.SimpleButton refreshButton;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }

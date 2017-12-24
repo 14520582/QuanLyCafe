@@ -253,6 +253,7 @@
             this.cbxTinhTrang.Size = new System.Drawing.Size(110, 21);
             this.cbxTinhTrang.TabIndex = 16;
             this.cbxTinhTrang.Text = "Trống";
+            this.cbxTinhTrang.SelectedIndexChanged += new System.EventHandler(this.cbxTinhTrang_SelectedIndexChanged);
             // 
             // btnSua
             // 

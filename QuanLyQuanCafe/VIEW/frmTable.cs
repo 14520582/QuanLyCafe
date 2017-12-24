@@ -139,5 +139,10 @@ namespace QuanLyQuanCafe.VIEW
         {
 
         }
+
+        private void cbxTinhTrang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -167,6 +167,7 @@
             this.gridColumn4});
             this.gridView1.GridControl = this.dgvBan;
             this.gridView1.Name = "gridView1";
+            this.gridView1.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gridView1_CustomColumnDisplayText);
             // 
             // gridColumn1
             // 

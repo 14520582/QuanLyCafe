@@ -130,6 +130,12 @@
     <Compile Include="VIEW\Ngan.Designer.cs">
       <DependentUpon>Ngan.cs</DependentUpon>
     </Compile>
+    <Compile Include="VIEW\Tram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\Tram.Designer.cs">
+      <DependentUpon>Tram.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="VIEW\frmInvoice.resx">
       <DependentUpon>frmInvoice.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\Ngan.resx">
       <DependentUpon>Ngan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Tram.resx">
+      <DependentUpon>Tram.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

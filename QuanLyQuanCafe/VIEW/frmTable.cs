@@ -69,6 +69,12 @@ namespace QuanLyQuanCafe.VIEW
             {
                 if(Table_BUS.CheckValidTable(txtBan.Text) == 1)
                 {
+                    if (cbxTinhTrang.Text == "Trống")
+                    {
+                        cbxTinhTrang.Text = "0";
+                    }
+                    else
+                        cbxTinhTrang.Text = "1";
                     Table_DTO table = new Table_DTO(txtBan.Text, txtViTri.Text, cbxTinhTrang.Text);                  
                     Table_BUS.AddTable(table);
                     MessageBox.Show("Lưu thành công");
@@ -80,7 +86,13 @@ namespace QuanLyQuanCafe.VIEW
             }
             else //sửa
             {
-                System.Data.DataRow row = gridView1.GetDataRow(gridView1.FocusedRowHandle);
+                if (cbxTinhTrang.Text == "Trống")
+                {
+                    cbxTinhTrang.Text = "0";
+                }
+                else
+                    cbxTinhTrang.Text = "1";
+                DataRow row = gridView1.GetDataRow(gridView1.FocusedRowHandle);
                 Table_DTO table = new Table_DTO(txtBan.Text, txtViTri.Text, cbxTinhTrang.Text);
                 Table_BUS.EditTable(table, row[0].ToString());
                 MessageBox.Show("Sửa thành công");
@@ -102,7 +114,7 @@ namespace QuanLyQuanCafe.VIEW
         {
             if (MessageBox.Show("Bạn chắc chắn muốn xóa " + txtBan.Text + " ?", "Xác Nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                System.Data.DataRow row = gridView1.GetDataRow(gridView1.FocusedRowHandle);
+                DataRow row = gridView1.GetDataRow(gridView1.FocusedRowHandle);
                 Table_BUS.DeleteTable(row[0].ToString());
                 MessageBox.Show("Xóa hoàn tất");
             }
@@ -143,6 +155,15 @@ namespace QuanLyQuanCafe.VIEW
         private void cbxTinhTrang_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void gridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.FieldName == "Status")
+            {
+                if (Convert.ToDecimal(e.Value) == 0) e.DisplayText = "Trống";
+                if (Convert.ToDecimal(e.Value) == 1) e.DisplayText = "Đang sử dụng";
+            }
         }
     }
 }

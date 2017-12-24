@@ -376,13 +376,83 @@ end
 go
 --Them chi tiet hoa don
 create proc AddBillInfo
-@IdTable int,
+@IdBill int,
 @IdFood int,
 @Number int
 as
 begin
-
-		insert into BillInfo(IdBill,IdFood,Number) values (@IdTable,@IdFood,@Number)
+		if exists (select * from BillInFo where IdBill = @IdBill and IdFood = @IdFood)
+			begin
+				update BillInFo set Number = Number + @Number where IdBill = @IdBill and IdFood = @IdFood 
+				update Bill set TotalPrice = TotalPrice + @Number*(select Price from Food where IdFood = @IdFood) where IdBill = @IdBill
+			end
+		else
+			begin
+				insert into BillInfo(IdBill,IdFood,Number) values (@IdBill,@IdFood,@Number)
+				update Bill set TotalPrice = @Number*(select Price from Food where IdFood = @IdFood) where IdBill = @IdBill
+			end
+end
+go
+--Them chi tiet hoa don
+create proc RemoveANumberOfFoodBillInfo
+@IdBill int,
+@IdFood int,
+@Number int
+as
+begin
+		if exists (select * from BillInFo where IdBill = @IdBill and IdFood = @IdFood and Number > @Number)
+			begin
+				update BillInFo set Number = Number - @Number where IdBill = @IdBill and IdFood = @IdFood
+				update Bill set TotalPrice = TotalPrice - @Number*(select Price from Food where IdFood = @IdFood) where IdBill = @IdBill
+			end
+		else
+			begin
+				delete BillInFo where IdBill = @IdBill and IdFood = @IdFood
+				update Bill set TotalPrice = TotalPrice - @Number*(select Price from Food where IdFood = @IdFood) where IdBill = @IdBill
+			end
+end
+go
+--Tim hoa don theo ban
+create proc FindBillByTable
+@IdTable int
+as
+begin
+	select a.IdBill from Bill a, BillTable b where a.Status = 0 and b.IdBill = a.IdBill and b.IdTable = @IdTable
+end
+go
+--Sua trang thai hoa don
+create proc EditStatusOfBill
+@Status int,
+@IdBill int
+as
+begin
+	update Bill set Status = @Status where IdBill = @IdBill
+end
+go
+--Them ban vao bill
+create proc AddTableIntoBill
+@IdBill int,
+@IdTable int
+as
+begin
+	insert into BillTable(IdBill, IdTable) values(@IdBill, @IdTable)
+end
+go
+--Xoa ban khoi bill
+create proc RemoveTableFromBill
+@Id int
+as
+begin
+	delete BillTable where Id = @Id
+end
+go
+--Tim BillTable tu table
+create proc FindBillTable
+@IdBill int,
+@IdTable int
+as
+begin
+	select Id from BillTable where IdBill=@IdBill and IdTable=@IdTable
 end
 go
 --Tao hoa don

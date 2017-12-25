@@ -85,10 +85,10 @@ namespace QuanLyQuanCafe.VIEW
             cbDV.Enabled = false;
             cbLoai.Enabled = false;
             btHuy.Enabled = false;
-            cbLoai.DataSource = Food_BUS.LoadFoodCategory();
+            cbLoai.DataSource = FoodCategory_BUS.LoadFoodCategory();
             cbLoai.DisplayMember = "NameCategory";
             cbLoai.ValueMember = "NameCategory";
-            cbDV.DataSource = Food_BUS.LoadFoodUnit();
+            cbDV.DataSource = FoodUnit_BUS.LoadFoodUnit();
             cbDV.DisplayMember = "NameUnit";
             cbDV.ValueMember = "NameUnit";
 
@@ -136,7 +136,7 @@ namespace QuanLyQuanCafe.VIEW
                     btXoa.Enabled = true;
                     btSua.Enabled = true;
                     btHuy.Enabled = false;
-                    Food_DTO food = new Food_DTO(tbTen.Text, Food_BUS.getIdCategoryByName(cbLoai.Text), Food_BUS.getIdUnitByName(cbDV.Text), float.Parse(tbDG.Text));
+                    Food_DTO food = new Food_DTO(tbTen.Text, FoodCategory_BUS.getIdCategoryByName(cbLoai.Text), FoodUnit_BUS.getIdUnitByName(cbDV.Text), float.Parse(tbDG.Text));
                     try
                     {
                         Food_BUS.AddFood(food);
@@ -181,7 +181,7 @@ namespace QuanLyQuanCafe.VIEW
                     btXoa.Enabled = true;
                     btThem.Enabled = true;
                     btHuy.Enabled = false;
-                    Food_DTO food = new Food_DTO(Int32.Parse(tbMa.Text), tbTen.Text, Food_BUS.getIdCategoryByName(cbLoai.Text), Food_BUS.getIdUnitByName(cbDV.Text), float.Parse(tbDG.Text));
+                    Food_DTO food = new Food_DTO(Int32.Parse(tbMa.Text), tbTen.Text, FoodCategory_BUS.getIdCategoryByName(cbLoai.Text), FoodUnit_BUS.getIdUnitByName(cbDV.Text), float.Parse(tbDG.Text));
                     try
                     {
                         Food_BUS.EditFood(food);
@@ -257,7 +257,7 @@ namespace QuanLyQuanCafe.VIEW
 
             try
             {
-                Food_BUS.AddFoodCategory(tbLoaiMoi.Text);
+                FoodCategory_BUS.AddFoodCategory(tbLoaiMoi.Text);
                 LoadFood();
                 MessageBox.Show("Thêm loại mới thành công");
             }

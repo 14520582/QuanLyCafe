@@ -24,7 +24,7 @@ namespace QuanLyQuanCafe.VIEW
 
         private void Ngan_Load(object sender, EventArgs e)
         {
-            dgvLoai.DataSource = Food_BUS.LoadFoodCategory();
+            dgvLoai.DataSource = FoodCategory_BUS.LoadFoodCategory();
             tbLoai.DataBindings.Clear();
             tbLoai.DataBindings.Add("Text", dgvLoai.DataSource, "NameCategory");
 

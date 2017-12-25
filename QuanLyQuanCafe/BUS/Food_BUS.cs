@@ -32,15 +32,9 @@ namespace QuanLyQuanCafe.BUS
             Food_DAO.DeleteFood(idFood);
         }
 
-        public static int getIdCategoryByName(String NameCategory)
-        {
-            return Food_DAO.getIdCategoryByName(NameCategory);
-        }
 
-        public static int getIdUnitByName(String NameUnit)
-        {
-            return Food_DAO.getIdUnitByName(NameUnit);
-        }
+
+       
 
         public static DataTable SearchByName(String name)
         {
@@ -52,20 +46,30 @@ namespace QuanLyQuanCafe.BUS
             return Food_DAO.SearchByCategory(category);
         }
 
-        public static DataTable LoadFoodCategory()
-        {
-            return Food_DAO.LoadFoodCategory();
-        }
+        
 
-        public static DataTable LoadFoodUnit()
-        {
-            return Food_DAO.LoadFoodUnit();
-        }
+        //public static DataTable LoadFoodUnit()
+        //{
+        //    return Food_DAO.LoadFoodUnit();
+        //}
+        //public static int getIdUnitByName(String NameUnit)
+        //{
+        //    return Food_DAO.getIdUnitByName(NameUnit);
+        //}
 
-        public static void AddFoodCategory(String NameCategory)
-        {
-            Food_DAO.AddFoodCategory(NameCategory);
-        }
+        //public static void AddFoodCategory(String NameCategory)
+        //{
+        //    Food_DAO.AddFoodCategory(NameCategory);
+        //}
 
+        //public static int getIdCategoryByName(String NameCategory)
+        //{
+        //    return Food_DAO.getIdCategoryByName(NameCategory);
+        //}
+
+        //public static DataTable LoadFoodCategory()
+        //{
+        //    return Food_DAO.LoadFoodCategory();
+        //}
     }
 }

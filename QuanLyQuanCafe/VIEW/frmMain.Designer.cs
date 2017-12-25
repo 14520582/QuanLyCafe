@@ -321,6 +321,7 @@
             this.btnBanHang.Id = 29;
             this.btnBanHang.Name = "btnBanHang";
             this.btnBanHang.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnBanHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBanHang_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -406,11 +407,12 @@
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1298, 749);
+            this.ClientSize = new System.Drawing.Size(1298, 759);
             this.Controls.Add(this.ribbonControl);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1300, 736);
             this.Name = "frmMain";
             this.Ribbon = this.ribbonControl;

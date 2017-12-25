@@ -16,8 +16,8 @@ namespace QuanLyQuanCafe.VIEW
         public frmMain()
         {
             InitializeComponent();
-            Form dn = new frmLogin();
-            dn.ShowDialog();
+            //Form dn = new frmLogin();
+            //dn.ShowDialog();
         }
         //public void skins()
         //{
@@ -71,6 +71,20 @@ namespace QuanLyQuanCafe.VIEW
             else
             {
                 f = new frmMenu();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnBanHang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = IsActive(typeof(frmService));
+
+            if (f != null)
+                f.Activate();
+            else
+            {
+                f = new frmService();
                 f.MdiParent = this;
                 f.Show();
             }

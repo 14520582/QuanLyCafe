@@ -16,7 +16,7 @@ namespace QuanLyQuanCafe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QuanLyQuanCafe.VIEW.frmMenu());
+            Application.Run(new QuanLyQuanCafe.VIEW.frmMain());
         }
     }
 }

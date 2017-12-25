@@ -212,17 +212,9 @@
     <None Include="Picture\folder-invoices-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Picture\table.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Picture\b.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Picture\back-arrow.png" />
-    <Content Include="Picture\delete.png" />
-    <Content Include="Picture\plus.png" />
-    <Content Include="Picture\save.png" />
-    <Content Include="Picture\tablecafe.png" />
     <None Include="QuanLyQuanCafeDataSet.xsc">
       <DependentUpon>QuanLyQuanCafeDataSet.xsd</DependentUpon>
     </None>
@@ -246,6 +238,9 @@
       <DependentUpon>QuanLyQuanCafeDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Resources\a0164_sl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Picture\table.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

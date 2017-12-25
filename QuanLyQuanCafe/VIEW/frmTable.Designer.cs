@@ -248,7 +248,7 @@
             this.cbxTinhTrang.FormattingEnabled = true;
             this.cbxTinhTrang.Items.AddRange(new object[] {
             "Trống",
-            "Đã Đặt"});
+            "Đang Sử Dụng"});
             this.cbxTinhTrang.Location = new System.Drawing.Point(648, 137);
             this.cbxTinhTrang.Name = "cbxTinhTrang";
             this.cbxTinhTrang.Size = new System.Drawing.Size(110, 21);

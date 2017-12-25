@@ -53,7 +53,7 @@ namespace QuanLyQuanCafe.VIEW
             txtViTri.Enabled = true;
             cbxTinhTrang.Enabled = true;
 
-            txtBan.Text = "Bàn ";
+            txtBan.Text = "";
             txtViTri.Text = "";
             cbxTinhTrang.Text = "Trống";
 

@@ -20,30 +20,38 @@ namespace QuanLyQuanCafe.VIEW
             LoadTable();
         }
         private void LoadTable()
-        {
-            //Table_BUS.LoadTable();
-            DataSet dataSet11 = new DataSet();
-            dataSet11.Tables.Add(Table_BUS.LoadTable());
-            DataTable dtb = Table_DAO.LoadTable();
+        {            
+            DataTable dtb = Table_DAO.LoadTable();         
             for (int i = 0; i < Table_BUS.CountTable(); i++)
             {
                 Button btn = new Button() { Width = 80, Height = 80 };
 
                 Object name = dtb.Rows[i]["Name"];
-                Object status = dtb.Rows[i]["Status"];
+                Object status = dtb.Rows[i]["Status"];              
+                btn.Click += new EventHandler(this.buttonTable_Click);
+                btn.Name = name.ToString();
                 if (status.ToString() == "0")
                 {
-                    btn.Image = Image.FromFile(@"C:\Users\hp\Documents\GitHubl\QuanLyCafe\QuanLyQuanCafe\Picture\empty.png");
-                    btn.Text = Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + name.ToString();
+                    btn.Image = (Image)(Properties.Resources.empty); 
+                    btn.Text = Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Bàn số " + name.ToString();
                 }
                 else
                 {
-                    btn.Image = Image.FromFile(@"C:\Users\hp\Documents\GitHubl\QuanLyCafe\QuanLyQuanCafe\Picture\using.png");
-                    btn.Text = Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + name.ToString();
-                }
-                flowLayoutPanel1.Controls.Add(btn);
+                    btn.Image = (Image)(Properties.Resources._using);
+                    btn.Text = Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Bàn số " + name.ToString();
+                }              
+                flowLayoutPanel1.Controls.Add(btn);                                             
             }
+            
         }
+        private void buttonTable_Click(object sender, EventArgs e)
+        {
+            string nameTable = (string)((Button)sender).Name;
+            MessageBox.Show("Bàn số" + nameTable);
+        }
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

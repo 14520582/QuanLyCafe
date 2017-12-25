@@ -29,10 +29,6 @@ namespace QuanLyQuanCafe.VIEW
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLyQuanCafeDataSet1.FoodCategory' table. You can move, or remove it, as needed.
-            this.foodCategoryTableAdapter.Fill(this.quanLyQuanCafeDataSet1.FoodCategory);
-            // TODO: This line of code loads data into the 'quanLyQuanCafeDataSet.Unit' table. You can move, or remove it, as needed.
-            this.unitTableAdapter.Fill(this.quanLyQuanCafeDataSet.Unit);
             dgvMenu.DataSource = Food_BUS.LoadFood();
             bindingData();
         }
@@ -89,8 +85,13 @@ namespace QuanLyQuanCafe.VIEW
             cbDV.Enabled = false;
             cbLoai.Enabled = false;
             btHuy.Enabled = false;
+            cbLoai.DataSource = Food_BUS.LoadFoodCategory();
+            cbLoai.DisplayMember = "NameCategory";
+            cbLoai.ValueMember = "NameCategory";
+            cbDV.DataSource = Food_BUS.LoadFoodUnit();
+            cbDV.DisplayMember = "NameUnit";
+            cbDV.ValueMember = "NameUnit";
 
-       
         }
 
         private void bindingData()
@@ -143,7 +144,7 @@ namespace QuanLyQuanCafe.VIEW
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString());
+                        MessageBox.Show("Thêm thất bại");
                     }
 
                     dgvMenu.DataSource = Food_BUS.LoadFood();
@@ -188,7 +189,7 @@ namespace QuanLyQuanCafe.VIEW
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString());
+                        MessageBox.Show("Cập nhật thất bại");
                     }
 
                     dgvMenu.DataSource = Food_BUS.LoadFood();
@@ -246,34 +247,24 @@ namespace QuanLyQuanCafe.VIEW
             flagTim = 1;
         }
 
-        private void search_TextChanged(object sender, EventArgs e)
+        
+
+  
+
+        private void btThemLoai_Click(object sender, EventArgs e)
         {
-            if(search.Text == null)
+            
+
+            try
             {
+                Food_BUS.AddFoodCategory(tbLoaiMoi.Text);
                 LoadFood();
-                dgvMenu.DataSource = Food_BUS.LoadFood();
-                bindingData();
-            }else
-            {
-                if(flagTim == 0)
-                {
-                    LoadFood();
-                    dgvMenu.DataSource = Food_BUS.SearchByName(search.Text);
-                    bindingData();
-                }else
-                {
-                    LoadFood();
-                    dgvMenu.DataSource = Food_BUS.SearchByCategory(search.Text);
-                    bindingData();
-                }
+                MessageBox.Show("Thêm loại mới thành công");
             }
-               
-
-        }
-
-        private void labelX4_Click(object sender, EventArgs e)
-        {
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thêm thất bại");
+            }
         }
     }
 }

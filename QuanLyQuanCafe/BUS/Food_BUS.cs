@@ -57,6 +57,15 @@ namespace QuanLyQuanCafe.BUS
             return Food_DAO.LoadFoodCategory();
         }
 
+        public static DataTable LoadFoodUnit()
+        {
+            return Food_DAO.LoadFoodUnit();
+        }
+
+        public static void AddFoodCategory(String NameCategory)
+        {
+            Food_DAO.AddFoodCategory(NameCategory);
+        }
 
     }
 }

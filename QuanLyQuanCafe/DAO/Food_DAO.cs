@@ -32,6 +32,17 @@ namespace QuanLyQuanCafe.DAO
             return dtb;
         }
 
+        public static DataTable LoadFoodUnit()
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("LoadFoodUnit", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtb = new DataTable();
+            da.Fill(dtb);
+            return dtb;
+        }
+
         public static DataTable SearchByName(string name)
         {
             SqlConnection cnn = ConnectToSQL.Connect();
@@ -139,6 +150,18 @@ namespace QuanLyQuanCafe.DAO
             cnn.Close();
             return idUnit;
         }
- 
+
+        public static void AddFoodCategory(string NameCategory)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("AddFoodCategory", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@NameCategory", SqlDbType.NVarChar, 100);        
+            cmd.Parameters["@NameCategory"].Value = NameCategory;
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+
     }
 }

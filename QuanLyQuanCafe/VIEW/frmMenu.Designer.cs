@@ -48,9 +48,7 @@
             this.btSua = new DevExpress.XtraEditors.SimpleButton();
             this.btXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btThem = new DevExpress.XtraEditors.SimpleButton();
-            this.search = new DevExpress.XtraEditors.SearchControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.dgvMenu = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.idFood = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -60,19 +58,22 @@
             this.Price = new DevExpress.XtraGrid.Columns.GridColumn();
             this.unitTableAdapter = new QuanLyQuanCafe.QuanLyQuanCafeDataSetTableAdapters.UnitTableAdapter();
             this.foodCategoryTableAdapter = new QuanLyQuanCafe.QuanLyQuanCafeDataSet1TableAdapters.FoodCategoryTableAdapter();
-            this.rbTen = new System.Windows.Forms.RadioButton();
-            this.rbLoai = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
+            this.btThemLoai = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.tbLoaiMoi = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyQuanCafeDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyQuanCafeDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.search.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -90,24 +91,21 @@
             this.groupControl1.Controls.Add(this.btSua);
             this.groupControl1.Controls.Add(this.btXoa);
             this.groupControl1.Controls.Add(this.btThem);
-            this.groupControl1.Location = new System.Drawing.Point(8, 171);
+            this.groupControl1.Location = new System.Drawing.Point(8, 105);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(235, 219);
+            this.groupControl1.Size = new System.Drawing.Size(235, 210);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Thức uống";
             // 
             // cbLoai
             // 
-            this.cbLoai.DataSource = this.foodCategoryBindingSource;
-            this.cbLoai.DisplayMember = "NameCategory";
             this.cbLoai.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLoai.FormattingEnabled = true;
             this.cbLoai.Location = new System.Drawing.Point(63, 49);
             this.cbLoai.Name = "cbLoai";
             this.cbLoai.Size = new System.Drawing.Size(160, 24);
             this.cbLoai.TabIndex = 30;
-            this.cbLoai.ValueMember = "NameCategory";
             // 
             // foodCategoryBindingSource
             // 
@@ -121,15 +119,12 @@
             // 
             // cbDV
             // 
-            this.cbDV.DataSource = this.unitBindingSource;
-            this.cbDV.DisplayMember = "NameUnit";
             this.cbDV.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDV.FormattingEnabled = true;
             this.cbDV.Location = new System.Drawing.Point(90, 81);
             this.cbDV.Name = "cbDV";
             this.cbDV.Size = new System.Drawing.Size(133, 24);
             this.cbDV.TabIndex = 29;
-            this.cbDV.ValueMember = "NameUnit";
             // 
             // unitBindingSource
             // 
@@ -148,7 +143,6 @@
             this.tbTen.Name = "tbTen";
             this.tbTen.Size = new System.Drawing.Size(160, 23);
             this.tbTen.TabIndex = 28;
-            this.tbTen.Text = "1";
             this.tbTen.TextChanged += new System.EventHandler(this.tbTen_TextChanged);
             // 
             // tbMa
@@ -268,21 +262,6 @@
             this.btThem.Text = "Thêm";
             this.btThem.Click += new System.EventHandler(this.btThem_Click);
             // 
-            // search
-            // 
-            this.search.EditValue = "";
-            this.search.Location = new System.Drawing.Point(10, 102);
-            this.search.Name = "search";
-            this.search.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search.Properties.Appearance.Options.UseFont = true;
-            this.search.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Repository.ClearButton(),
-            new DevExpress.XtraEditors.Repository.SearchButton()});
-            this.search.Size = new System.Drawing.Size(233, 22);
-            this.search.TabIndex = 4;
-            this.search.SelectedIndexChanged += new System.EventHandler(this.searchControl1_SelectedIndexChanged);
-            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::QuanLyQuanCafe.Properties.Resources.a0164_sl;
@@ -294,28 +273,12 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // labelX4
-            // 
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.labelX4.Location = new System.Drawing.Point(151, 12);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(477, 83);
-            this.labelX4.TabIndex = 14;
-            this.labelX4.Text = "MENU";
-            this.labelX4.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.labelX4.Click += new System.EventHandler(this.labelX4_Click);
-            // 
             // dgvMenu
             // 
-            this.dgvMenu.Location = new System.Drawing.Point(250, 101);
+            this.dgvMenu.Location = new System.Drawing.Point(250, 105);
             this.dgvMenu.MainView = this.gridView1;
             this.dgvMenu.Name = "dgvMenu";
-            this.dgvMenu.Size = new System.Drawing.Size(490, 353);
+            this.dgvMenu.Size = new System.Drawing.Size(499, 292);
             this.dgvMenu.TabIndex = 15;
             this.dgvMenu.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -332,6 +295,8 @@
             this.Price});
             this.gridView1.GridControl = this.dgvMenu;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsFind.AlwaysVisible = true;
+            this.gridView1.OptionsFind.SearchInPreview = true;
             // 
             // idFood
             // 
@@ -381,55 +346,67 @@
             // 
             this.foodCategoryTableAdapter.ClearBeforeFill = true;
             // 
-            // rbTen
+            // btThemLoai
             // 
-            this.rbTen.AutoSize = true;
-            this.rbTen.Checked = true;
-            this.rbTen.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbTen.Location = new System.Drawing.Point(110, 135);
-            this.rbTen.Name = "rbTen";
-            this.rbTen.Size = new System.Drawing.Size(48, 20);
-            this.rbTen.TabIndex = 16;
-            this.rbTen.TabStop = true;
-            this.rbTen.Text = "Tên";
-            this.rbTen.UseVisualStyleBackColor = true;
-            this.rbTen.CheckedChanged += new System.EventHandler(this.rbTen_CheckedChanged);
+            this.btThemLoai.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThemLoai.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btThemLoai.Appearance.Options.UseFont = true;
+            this.btThemLoai.Appearance.Options.UseForeColor = true;
+            this.btThemLoai.Image = ((System.Drawing.Image)(resources.GetObject("btThemLoai.Image")));
+            this.btThemLoai.Location = new System.Drawing.Point(194, 26);
+            this.btThemLoai.Name = "btThemLoai";
+            this.btThemLoai.Size = new System.Drawing.Size(27, 24);
+            this.btThemLoai.TabIndex = 21;
+            this.btThemLoai.Click += new System.EventHandler(this.btThemLoai_Click);
             // 
-            // rbLoai
+            // groupControl2
             // 
-            this.rbLoai.AutoSize = true;
-            this.rbLoai.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbLoai.Location = new System.Drawing.Point(182, 135);
-            this.rbLoai.Name = "rbLoai";
-            this.rbLoai.Size = new System.Drawing.Size(49, 20);
-            this.rbLoai.TabIndex = 17;
-            this.rbLoai.TabStop = true;
-            this.rbLoai.Text = "Loại";
-            this.rbLoai.UseVisualStyleBackColor = true;
-            this.rbLoai.CheckedChanged += new System.EventHandler(this.rbLoai_CheckedChanged);
+            this.groupControl2.Controls.Add(this.tbLoaiMoi);
+            this.groupControl2.Controls.Add(this.label6);
+            this.groupControl2.Controls.Add(this.btThemLoai);
+            this.groupControl2.Location = new System.Drawing.Point(8, 331);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(235, 66);
+            this.groupControl2.TabIndex = 22;
+            this.groupControl2.Text = "Thêm loại mới";
             // 
-            // label5
+            // tbLoaiMoi
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label5.Location = new System.Drawing.Point(12, 135);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 16);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Tìm theo";
+            this.tbLoaiMoi.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLoaiMoi.Location = new System.Drawing.Point(63, 26);
+            this.tbLoaiMoi.Name = "tbLoaiMoi";
+            this.tbLoaiMoi.Size = new System.Drawing.Size(124, 23);
+            this.tbLoaiMoi.TabIndex = 30;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.label6.Location = new System.Drawing.Point(14, 29);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(30, 16);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Tên";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            this.labelControl1.Location = new System.Drawing.Point(289, 16);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(178, 79);
+            this.labelControl1.TabIndex = 23;
+            this.labelControl1.Text = "MENU";
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 467);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.rbLoai);
-            this.Controls.Add(this.rbTen);
+            this.ClientSize = new System.Drawing.Size(752, 406);
+            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.dgvMenu);
-            this.Controls.Add(this.labelX4);
-            this.Controls.Add(this.search);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -444,10 +421,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.quanLyQuanCafeDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyQuanCafeDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.search.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            this.groupControl2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,13 +437,11 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.SearchControl search;
 
         private DevExpress.XtraEditors.SimpleButton btThem;
         private DevExpress.XtraEditors.SimpleButton btXoa;
         private DevExpress.XtraEditors.SimpleButton btHuy;
         private DevExpress.XtraEditors.SimpleButton btSua;
-        private DevComponents.DotNetBar.LabelX labelX4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -487,8 +464,10 @@
         private QuanLyQuanCafeDataSet1 quanLyQuanCafeDataSet1;
         private System.Windows.Forms.BindingSource foodCategoryBindingSource;
         private QuanLyQuanCafeDataSet1TableAdapters.FoodCategoryTableAdapter foodCategoryTableAdapter;
-        private System.Windows.Forms.RadioButton rbTen;
-        private System.Windows.Forms.RadioButton rbLoai;
-        private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.SimpleButton btThemLoai;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private System.Windows.Forms.TextBox tbLoaiMoi;
+        private System.Windows.Forms.Label label6;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

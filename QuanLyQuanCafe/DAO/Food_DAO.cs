@@ -21,16 +21,27 @@ namespace QuanLyQuanCafe.DAO
             da.Fill(dtb);
             return dtb;
         }
-        public static DataTable LoadFoodCategory()
-        {
-            SqlConnection cnn = ConnectToSQL.Connect();
-            SqlCommand cmd = new SqlCommand("LoadFoodCategory", cnn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dtb = new DataTable();
-            da.Fill(dtb);
-            return dtb;
-        }
+        //public static DataTable LoadFoodCategory()
+        //{
+        //    SqlConnection cnn = ConnectToSQL.Connect();
+        //    SqlCommand cmd = new SqlCommand("LoadFoodCategory", cnn);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //    DataTable dtb = new DataTable();
+        //    da.Fill(dtb);
+        //    return dtb;
+        //}
+
+        //public static DataTable LoadFoodUnit()
+        //{
+        //    SqlConnection cnn = ConnectToSQL.Connect();
+        //    SqlCommand cmd = new SqlCommand("LoadFoodUnit", cnn);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //    DataTable dtb = new DataTable();
+        //    da.Fill(dtb);
+        //    return dtb;
+        //}
 
         public static DataTable SearchByName(string name)
         {
@@ -110,35 +121,47 @@ namespace QuanLyQuanCafe.DAO
             cnn.Close();
         }
 
-        public static int getIdCategoryByName(string NameCategory)
-        {
-            SqlConnection cnn = ConnectToSQL.Connect();
-            SqlCommand cmd = new SqlCommand("getIDCategoryByName", cnn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@IdCategory", SqlDbType.Int).Direction = ParameterDirection.Output;
-            cmd.Parameters.Add("@NameCategory", SqlDbType.NVarChar, 100);
-            cmd.Parameters["@NameCategory"].Value = NameCategory;
-            cnn.Open();
-            cmd.ExecuteNonQuery();
-            int idCategory = Convert.ToInt32(cmd.Parameters["@IdCategory"].Value);
-            cnn.Close();
-            return idCategory;
-        }
+        //public static int getIdCategoryByName(string NameCategory)
+        //{
+        //    SqlConnection cnn = ConnectToSQL.Connect();
+        //    SqlCommand cmd = new SqlCommand("getIDCategoryByName", cnn);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.Parameters.Add("@IdCategory", SqlDbType.Int).Direction = ParameterDirection.Output;
+        //    cmd.Parameters.Add("@NameCategory", SqlDbType.NVarChar, 100);
+        //    cmd.Parameters["@NameCategory"].Value = NameCategory;
+        //    cnn.Open();
+        //    cmd.ExecuteNonQuery();
+        //    int idCategory = Convert.ToInt32(cmd.Parameters["@IdCategory"].Value);
+        //    cnn.Close();
+        //    return idCategory;
+        //}
 
-        public static int getIdUnitByName(string NameUnit)
-        {
-            SqlConnection cnn = ConnectToSQL.Connect();
-            SqlCommand cmd = new SqlCommand("getIDUnitByName", cnn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@IdUnit", SqlDbType.Int).Direction = ParameterDirection.Output;
-            cmd.Parameters.Add("@NameUnit", SqlDbType.NVarChar, 100);
-            cmd.Parameters["@NameUnit"].Value = NameUnit;
-            cnn.Open();
-            cmd.ExecuteNonQuery();
-            int idUnit = Convert.ToInt32(cmd.Parameters["@IdUnit"].Value);
-            cnn.Close();
-            return idUnit;
-        }
- 
+        //public static int getIdUnitByName(string NameUnit)
+        //{
+        //    SqlConnection cnn = ConnectToSQL.Connect();
+        //    SqlCommand cmd = new SqlCommand("getIDUnitByName", cnn);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.Parameters.Add("@IdUnit", SqlDbType.Int).Direction = ParameterDirection.Output;
+        //    cmd.Parameters.Add("@NameUnit", SqlDbType.NVarChar, 100);
+        //    cmd.Parameters["@NameUnit"].Value = NameUnit;
+        //    cnn.Open();
+        //    cmd.ExecuteNonQuery();
+        //    int idUnit = Convert.ToInt32(cmd.Parameters["@IdUnit"].Value);
+        //    cnn.Close();
+        //    return idUnit;
+        //}
+
+        //public static void AddFoodCategory(string NameCategory)
+        //{
+        //    SqlConnection cnn = ConnectToSQL.Connect();
+        //    SqlCommand cmd = new SqlCommand("AddFoodCategory", cnn);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.Parameters.Add("@NameCategory", SqlDbType.NVarChar, 100);        
+        //    cmd.Parameters["@NameCategory"].Value = NameCategory;
+        //    cnn.Open();
+        //    cmd.ExecuteNonQuery();
+        //    cnn.Close();
+        //}
+
     }
 }

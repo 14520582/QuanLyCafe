@@ -34,6 +34,10 @@ namespace QuanLyQuanCafe.BUS
         public static void DeleteTable(string IdTable)
         {
             Table_DAO.DeleteTable(IdTable);
+        }      
+        public static void EditStatusOfTable(int IdTable, int Status)
+        {
+            Table_DAO.EditStatusOfTable(IdTable, Status);
         }
     }
 }

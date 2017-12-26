@@ -35,5 +35,41 @@ namespace QuanLyQuanCafe.DAO
             da.Fill(dtb);
             return dtb;
         }
+        public static DataTable LoadBillTakeAway()
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("LoadBillTakeAway", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtb = new DataTable();
+            da.Fill(dtb);
+            return dtb;
+        }  
+        public static DataTable FindBillByTable(int IdTable)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("FindBillByTable", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@IdTable", SqlDbType.Int);
+            cmd.Parameters["@IdTable"].Value = IdTable;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtb = new DataTable();
+            da.Fill(dtb);
+            return dtb;
+        }
+        public static DataTable EditStatusOfBill(int IdBill, int Status)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("EditStatusOfBill", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@IdBill", SqlDbType.Int);
+            cmd.Parameters["@IdBill"].Value = IdBill;
+            cmd.Parameters.Add("@Status", SqlDbType.Int);
+            cmd.Parameters["@Status"].Value = Status;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtb = new DataTable();
+            da.Fill(dtb);
+            return dtb;
+        }
     }
 }

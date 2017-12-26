@@ -33,5 +33,17 @@ namespace QuanLyQuanCafe.DAO
             da.Fill(dtb);
             return dtb;
         }
+        public static DataTable LoadBillInfoByIdBill(int IdBill)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("LoadBillInfoByIdBill", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@IdBill", SqlDbType.Int);
+            cmd.Parameters["@IdBill"].Value = IdBill;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtb = new DataTable();
+            da.Fill(dtb);
+            return dtb;
+        }
     }
 }

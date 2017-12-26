@@ -124,6 +124,12 @@
     <Compile Include="VIEW\frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="VIEW\frmNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\frmNumber.Designer.cs">
+      <DependentUpon>frmNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\frmService.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,8 +177,12 @@
     <EmbeddedResource Include="VIEW\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\frmNumber.resx">
+      <DependentUpon>frmNumber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmService.resx">
       <DependentUpon>frmService.cs</DependentUpon>
+      <LastGenOutput>frmService1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmTable.resx">
       <DependentUpon>frmTable.cs</DependentUpon>
@@ -241,6 +251,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Picture\table.png" />
+    <None Include="Resources\btnSave.Image.bmp" />
+    <None Include="Resources\btnSave.Image.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

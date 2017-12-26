@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace QuanLyQuanCafe.DAO
 {
     class Table_DAO
-    {
+    {        
         public static DataTable LoadTable()
         {
             SqlConnection cnn = ConnectToSQL.Connect();
@@ -89,6 +89,20 @@ namespace QuanLyQuanCafe.DAO
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
+        }
+        public static DataTable EditStatusOfTable(int IdTable, int Status)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("EditStatusOfTable", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@IdTable", SqlDbType.Int);
+            cmd.Parameters["@IdTable"].Value = IdTable;
+            cmd.Parameters.Add("@Status", SqlDbType.Int);
+            cmd.Parameters["@Status"].Value = Status;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtb = new DataTable();
+            da.Fill(dtb);
+            return dtb;
         }
 
     }

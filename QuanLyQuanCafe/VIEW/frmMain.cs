@@ -89,5 +89,19 @@ namespace QuanLyQuanCafe.VIEW
                 f.Show();
             }
         }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            Form f = IsActive(typeof(frmService));
+
+            if (f != null)
+                f.Activate();
+            else
+            {
+                f = new frmService();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

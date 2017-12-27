@@ -124,12 +124,6 @@
     <Compile Include="VIEW\frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\frmNumber.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VIEW\frmNumber.Designer.cs">
-      <DependentUpon>frmNumber.cs</DependentUpon>
-    </Compile>
     <Compile Include="VIEW\frmService.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,9 +170,6 @@
     </Compile>
     <EmbeddedResource Include="VIEW\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\frmNumber.resx">
-      <DependentUpon>frmNumber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmService.resx">
       <DependentUpon>frmService.cs</DependentUpon>
@@ -250,6 +241,9 @@
     <None Include="Resources\a0164_sl.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Picture\available.png" />
+    <None Include="Picture\cafe.png" />
+    <None Include="Picture\occupy.png" />
     <Content Include="Picture\table.png" />
     <None Include="Resources\btnSave.Image.bmp" />
     <None Include="Resources\btnSave.Image.ico" />

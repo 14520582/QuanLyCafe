@@ -9,7 +9,21 @@ namespace QuanLyQuanCafe.DTO
     class BillTable_DTO
     {
         int id, idBill, idTable;
+        public BillTable_DTO()
+        {
 
+        }
+        public BillTable_DTO(int _id, int _idBill, int _idTable)
+        {
+            id = _id;
+            idBill = _idBill;
+            idTable = _idTable;
+        }
+        public BillTable_DTO(int _idBill, int _idTable)
+        {
+            idBill = _idBill;
+            idTable = _idTable;
+        }
         public int Id
         {
             get

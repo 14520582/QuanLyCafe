@@ -31,5 +31,26 @@ namespace QuanLyQuanCafe.BUS
         {
             return Bill_DAO.EditStatusOfBill(IdBill, Status);
         }
+        public static void InsertBill(Bill_DTO bill)
+        {
+            Bill_DAO.InsertBill(bill);
+        }
+        public static void DeleteBill(int idBill)
+        {
+            Bill_DAO.DeleteBill(idBill);
+        }
+        public static int GetLastIdBill()
+        {
+            return Bill_DAO.GetLastIdBill();
+        }
+        public static void DeleteAllOfBill(int idBill)
+        {
+            Bill_DAO.DeleteAllOfBill(idBill);
+        }
+        public static void EditTotalOfBill(int idBill, int Total)
+        {
+            Bill_DAO.EditTotalOfBill(idBill,Total);
+        }
+
     }
 }

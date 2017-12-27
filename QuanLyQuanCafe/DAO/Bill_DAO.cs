@@ -71,5 +71,66 @@ namespace QuanLyQuanCafe.DAO
             da.Fill(dtb);
             return dtb;
         }
+        public static void InsertBill(Bill_DTO Bill)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("AddBill", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Total", SqlDbType.Int);
+            cmd.Parameters["@Total"].Value = Bill.Total;
+            cmd.Parameters.Add("@Status", SqlDbType.Int);
+            cmd.Parameters["@Status"].Value = Bill.Status;
+            cmd.Parameters.Add("@Date", SqlDbType.Date);
+            cmd.Parameters["@Date"].Value = Bill.Date.ToShortDateString();
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+        public static int GetLastIdBill()
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("GetLastIdBill", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtb = new DataTable();
+            da.Fill(dtb);
+            return Int32.Parse(dtb.Rows[0][0].ToString());
+        }
+        public static void DeleteBill(int idBill)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("DeleteBill", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@idBill", SqlDbType.Int);
+            cmd.Parameters["@idBill"].Value = idBill;
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+        public static void DeleteAllOfBill(int idBill)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("DeleteAllOfBill", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@idBill", SqlDbType.Int);
+            cmd.Parameters["@idBill"].Value = idBill;
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+        public static void EditTotalOfBill(int idBill, int total)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("EditTotalOfBill", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@idBill", SqlDbType.Int);
+            cmd.Parameters["@idBill"].Value = idBill;
+            cmd.Parameters.Add("@TotalPrice", SqlDbType.Int);
+            cmd.Parameters["@TotalPrice"].Value = total;
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+        
     }
 }

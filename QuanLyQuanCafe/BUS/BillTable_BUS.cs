@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using QuanLyQuanCafe.DAO;
+using QuanLyQuanCafe.DTO;
+
 namespace QuanLyQuanCafe.BUS
 {
     class BillTable_BUS
@@ -20,6 +22,18 @@ namespace QuanLyQuanCafe.BUS
         public static DataTable FindBillTableByBill(int IdBill)
         {
             return BillTable_DAO.FindBillTableByBill(IdBill);
+        }
+        public static void AddTableIntoBill(BillTable_DTO bt)
+        {
+            BillTable_DAO.AddTableIntoBill(bt);
+        }
+        public static void DeleteBillTable(int idBill, int idTable)
+        {
+            BillTable_DAO.DeleteBillTable(idBill, idTable);
+        }
+        public static void DeleteAllTablesOfBill(int idBill)
+        {
+            BillTable_DAO.DeleteAllTablesOfBill(idBill);
         }
     }
 }

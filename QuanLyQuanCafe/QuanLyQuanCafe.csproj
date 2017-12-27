@@ -274,6 +274,9 @@
     <None Include="Resources\a0164_sl.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Picture\available.png" />
+    <None Include="Picture\cafe.png" />
+    <None Include="Picture\occupy.png" />
     <Content Include="Picture\table.png" />
     <None Include="Resources\btnSave.Image.bmp" />
     <None Include="Resources\btnSave.Image.ico" />

@@ -83,6 +83,16 @@ namespace QuanLyQuanCafe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap available {
+            get {
+                object obj = ResourceManager.GetObject("available", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap b {
             get {
                 object obj = ResourceManager.GetObject("b", resourceCulture);
@@ -126,6 +136,16 @@ namespace QuanLyQuanCafe.Properties {
         internal static System.Drawing.Bitmap folder_invoices_icon {
             get {
                 object obj = ResourceManager.GetObject("folder-invoices-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap occupy {
+            get {
+                object obj = ResourceManager.GetObject("occupy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

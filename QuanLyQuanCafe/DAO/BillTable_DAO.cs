@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using QuanLyQuanCafe.DTO;
+
 namespace QuanLyQuanCafe.DAO
 {
     class BillTable_DAO
@@ -45,5 +47,43 @@ namespace QuanLyQuanCafe.DAO
             da.Fill(dtb);
             return dtb;
         }
+        public static void AddTableIntoBill(BillTable_DTO bt)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("AddTableIntoBill", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@IdBill", SqlDbType.Int);
+            cmd.Parameters["@IdBill"].Value = bt.IdBill;
+            cmd.Parameters.Add("@IdTable", SqlDbType.Int);
+            cmd.Parameters["@IdTable"].Value = bt.IdTable;
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+        public static void DeleteBillTable(int idBill, int idTable)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("DeleteBillTable", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@IdBill", SqlDbType.Int);
+            cmd.Parameters["@IdBill"].Value = idBill;
+            cmd.Parameters.Add("@IdTable", SqlDbType.Int);
+            cmd.Parameters["@IdTable"].Value = idTable;
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+        public static void DeleteAllTablesOfBill(int idBill)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("DeleteAllTablesOfBill", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@IdBill", SqlDbType.Int);
+            cmd.Parameters["@IdBill"].Value = idBill;
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+        
     }
 }

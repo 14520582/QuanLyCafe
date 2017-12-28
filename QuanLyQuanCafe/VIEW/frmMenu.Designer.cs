@@ -134,11 +134,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::QuanLyQuanCafe.Properties.Resources.a0164_sl;
-            this.pictureBox1.Location = new System.Drawing.Point(86, 6);
+            this.pictureBox1.Image = global::QuanLyQuanCafe.Properties.Resources.cocktail;
+            this.pictureBox1.Location = new System.Drawing.Point(86, 32);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(81, 85);
+            this.pictureBox1.Size = new System.Drawing.Size(59, 49);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;

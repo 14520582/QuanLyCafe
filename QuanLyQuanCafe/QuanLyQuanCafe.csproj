@@ -275,8 +275,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Picture\available.png" />
-    <None Include="Picture\cafe.png" />
     <None Include="Picture\occupy.png" />
+    <None Include="Picture\clipboard.png" />
+    <None Include="Picture\invoice.png" />
+    <None Include="Picture\dinner.png" />
+    <None Include="Picture\coffee-cup.png" />
+    <None Include="Picture\home.png" />
+    <None Include="Picture\menu.png" />
+    <None Include="Picture\cocktail.png" />
+    <None Include="Picture\if_infomation_83829.png" />
+    <None Include="Picture\seo.png" />
     <Content Include="Picture\table.png" />
     <None Include="Resources\btnSave.Image.bmp" />
     <None Include="Resources\btnSave.Image.ico" />

@@ -47,10 +47,10 @@ namespace QuanLyQuanCafe.VIEW
         private void frmService_Load(object sender, EventArgs e)
         {
             dgvLoai.DataSource = FoodCategory_BUS.LoadFoodCategory();
-            tbLoai.DataBindings.Clear();
-            tbLoai.DataBindings.Add("Text", dgvLoai.DataSource, "NameCategory");
+            //tbLoai.DataBindings.Clear();
+           // tbLoai.DataBindings.Add("Text", dgvLoai.DataSource, "NameCategory");
 
-            dgvMenu.DataSource = Food_BUS.SearchByCategory(tbLoai.Text);
+            //dgvMenu.DataSource = Food_BUS.SearchByCategory(tbLoai.Text);
             //Load Take away bill
             gcBillTakeAway.DataSource = Bill_BUS.LoadBillTakeAway();
             //Load Table
@@ -60,7 +60,7 @@ namespace QuanLyQuanCafe.VIEW
 
         private void tbLoai_TextChanged(object sender, EventArgs e)
         {
-            dgvMenu.DataSource = Food_BUS.SearchByCategory(tbLoai.Text);
+            //dgvMenu.DataSource = Food_BUS.SearchByCategory(tbLoai.Text);
         }
         private void buttonTable_Click(object sender, EventArgs e)
         {
@@ -100,7 +100,6 @@ namespace QuanLyQuanCafe.VIEW
                             //tbTotal.Text = bill.Rows[0]["TotalPrice"].ToString();
                             dtDate.Value = (DateTime)bill.Rows[0]["Date"];
                         }
-                        tbIdTable.Text = IdTable.ToString();
                         btnPay.Enabled = true;
                         btnAddInfo.Enabled = true;
                         btnReduce.Enabled = true;
@@ -155,12 +154,6 @@ namespace QuanLyQuanCafe.VIEW
                     rows[0].Delete();
                 }
             }
-        }
-
-        private void tbBillTakeAway_TextChanged(object sender, EventArgs e)
-        {
-            
-
         }
 
         private void gridView4_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -590,6 +583,11 @@ namespace QuanLyQuanCafe.VIEW
             {
 
             }
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            dgvMenu.DataSource = Food_BUS.SearchByCategory(gridView1.GetFocusedRowCellValue("NameCategory").ToString());
         }
     }
 }

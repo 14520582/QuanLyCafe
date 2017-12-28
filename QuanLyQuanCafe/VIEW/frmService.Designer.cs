@@ -37,7 +37,6 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.tbBillTakeAway = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.number = new System.Windows.Forms.NumericUpDown();
@@ -55,8 +54,6 @@
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.btnTeminate = new DevExpress.XtraEditors.SimpleButton();
             this.btnPay = new DevExpress.XtraEditors.SimpleButton();
-            this.tbIdTable = new System.Windows.Forms.TextBox();
-            this.tbIdBill = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dtDate = new System.Windows.Forms.DateTimePicker();
             this.gcBillInfo = new DevExpress.XtraGrid.GridControl();
@@ -65,8 +62,6 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.tbIdMonInBill = new System.Windows.Forms.TextBox();
-            this.tbIdMonInMenu = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgvMenu = new DevExpress.XtraGrid.GridControl();
@@ -79,7 +74,6 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Category = new DevExpress.XtraGrid.Columns.GridColumn();
             this.image = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
-            this.tbLoai = new System.Windows.Forms.TextBox();
             this.quanLyQuanCafeDataSet11 = new QuanLyQuanCafe.QuanLyQuanCafeDataSet1();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -127,7 +121,6 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.gcBillTakeAway);
-            this.groupBox2.Controls.Add(this.tbBillTakeAway);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
@@ -189,14 +182,6 @@
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 2;
             // 
-            // tbBillTakeAway
-            // 
-            this.tbBillTakeAway.Location = new System.Drawing.Point(245, 68);
-            this.tbBillTakeAway.Name = "tbBillTakeAway";
-            this.tbBillTakeAway.Size = new System.Drawing.Size(100, 20);
-            this.tbBillTakeAway.TabIndex = 0;
-            this.tbBillTakeAway.TextChanged += new System.EventHandler(this.tbBillTakeAway_TextChanged);
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
@@ -212,8 +197,6 @@
             this.panel2.Controls.Add(this.btnReduce);
             this.panel2.Controls.Add(this.btnAddInfo);
             this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.tbIdMonInBill);
-            this.panel2.Controls.Add(this.tbIdMonInMenu);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(449, 0);
             this.panel2.Name = "panel2";
@@ -269,8 +252,6 @@
             // nameBill
             // 
             this.nameBill.Controls.Add(this.groupBox1);
-            this.nameBill.Controls.Add(this.tbIdTable);
-            this.nameBill.Controls.Add(this.tbIdBill);
             this.nameBill.Controls.Add(this.panel7);
             this.nameBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nameBill.Location = new System.Drawing.Point(0, 0);
@@ -387,20 +368,6 @@
             this.btnPay.Text = "Thanh toán";
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
-            // tbIdTable
-            // 
-            this.tbIdTable.Location = new System.Drawing.Point(172, 412);
-            this.tbIdTable.Name = "tbIdTable";
-            this.tbIdTable.Size = new System.Drawing.Size(100, 20);
-            this.tbIdTable.TabIndex = 2;
-            // 
-            // tbIdBill
-            // 
-            this.tbIdBill.Location = new System.Drawing.Point(60, 413);
-            this.tbIdBill.Name = "tbIdBill";
-            this.tbIdBill.Size = new System.Drawing.Size(100, 20);
-            this.tbIdBill.TabIndex = 1;
-            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.dtDate);
@@ -498,20 +465,6 @@
             this.gridColumn6.VisibleIndex = 3;
             this.gridColumn6.Width = 175;
             // 
-            // tbIdMonInBill
-            // 
-            this.tbIdMonInBill.Location = new System.Drawing.Point(172, 12);
-            this.tbIdMonInBill.Name = "tbIdMonInBill";
-            this.tbIdMonInBill.Size = new System.Drawing.Size(100, 20);
-            this.tbIdMonInBill.TabIndex = 1;
-            // 
-            // tbIdMonInMenu
-            // 
-            this.tbIdMonInMenu.Location = new System.Drawing.Point(172, 38);
-            this.tbIdMonInMenu.Name = "tbIdMonInMenu";
-            this.tbIdMonInMenu.Size = new System.Drawing.Size(100, 20);
-            this.tbIdMonInMenu.TabIndex = 0;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel5);
@@ -585,7 +538,6 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.dgvLoai);
-            this.panel4.Controls.Add(this.tbLoai);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
@@ -611,6 +563,7 @@
             this.Category});
             this.gridView1.GridControl = this.dgvLoai;
             this.gridView1.Name = "gridView1";
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // Category
             // 
@@ -626,14 +579,6 @@
             // 
             this.image.Name = "image";
             // 
-            // tbLoai
-            // 
-            this.tbLoai.Location = new System.Drawing.Point(111, 108);
-            this.tbLoai.Name = "tbLoai";
-            this.tbLoai.Size = new System.Drawing.Size(100, 20);
-            this.tbLoai.TabIndex = 3;
-            this.tbLoai.TextChanged += new System.EventHandler(this.tbLoai_TextChanged);
-            // 
             // quanLyQuanCafeDataSet11
             // 
             this.quanLyQuanCafeDataSet11.DataSetName = "QuanLyQuanCafeDataSet1";
@@ -647,21 +592,19 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmService";
-            this.Text = "Sử Dụng Dịch Vụ";
+            this.Text = "Bán hàng";
             this.Load += new System.EventHandler(this.frmService_Load);
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcBillTakeAway)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.number)).EndInit();
             this.panel6.ResumeLayout(false);
             this.nameBill.ResumeLayout(false);
-            this.nameBill.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcBillInfo)).EndInit();
@@ -671,7 +614,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
@@ -687,7 +629,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox tbLoai;
         private DevExpress.XtraGrid.GridControl dgvLoai;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn Category;
@@ -701,8 +642,6 @@
         private DevExpress.XtraEditors.SimpleButton btnReduce;
         private DevExpress.XtraEditors.SimpleButton btnAddInfo;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox tbIdMonInBill;
-        private System.Windows.Forms.TextBox tbIdMonInMenu;
         private System.Windows.Forms.GroupBox nameBill;
         private System.Windows.Forms.Panel panel7;
         private DevExpress.XtraGrid.GridControl gcBillInfo;
@@ -714,8 +653,6 @@
         private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraEditors.SimpleButton btnTeminate;
         private DevExpress.XtraEditors.SimpleButton btnPay;
-        private System.Windows.Forms.TextBox tbIdTable;
-        private System.Windows.Forms.TextBox tbIdBill;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -724,7 +661,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private System.Windows.Forms.TextBox tbBillTakeAway;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private DevExpress.XtraEditors.SimpleButton btnCreateBill;
         private DevExpress.XtraEditors.SimpleButton btnCancel;

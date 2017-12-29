@@ -75,5 +75,39 @@ namespace QuanLyQuanCafe.VIEW
                 f.Show();
             }
         }
+
+        private void btnBanHang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = IsActive(typeof(frmService));
+
+            if (f != null)
+                f.Activate();
+            else
+            {
+                f = new frmService();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            Form f = IsActive(typeof(frmService));
+
+            if (f != null)
+                f.Activate();
+            else
+            {
+                f = new frmService();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnCreateReport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form dn = new frmReport();
+            dn.ShowDialog();
+        }
     }
 }

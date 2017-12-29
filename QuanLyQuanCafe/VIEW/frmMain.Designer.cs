@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnMenu = new DevExpress.XtraBars.BarButtonItem();
             this.btnDatPhong = new DevExpress.XtraBars.BarButtonItem();
@@ -59,11 +60,14 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.btnBanHang = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCreateReport = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -108,9 +112,11 @@
             this.btnThoatHeThong,
             this.barButtonItem2,
             this.barButtonItem4,
-            this.btnBanHang});
+            this.btnBanHang,
+            this.barButtonItem8,
+            this.btnCreateReport});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 30;
+            this.ribbonControl.MaxItemId = 32;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -126,7 +132,7 @@
             this.btnMenu.Caption = "Thực Đơn";
             this.btnMenu.Glyph = global::QuanLyQuanCafe.Properties.Resources.drinks_icon;
             this.btnMenu.Id = 1;
-            this.btnMenu.LargeGlyph = global::QuanLyQuanCafe.Properties.Resources.drinks_icon;
+            this.btnMenu.LargeGlyph = global::QuanLyQuanCafe.Properties.Resources.coffee_cup;
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnMenu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMenu_ItemClick);
@@ -164,6 +170,7 @@
             this.btnQLBan.Caption = "Bàn";
             this.btnQLBan.Glyph = global::QuanLyQuanCafe.Properties.Resources.table;
             this.btnQLBan.Id = 6;
+            this.btnQLBan.LargeGlyph = global::QuanLyQuanCafe.Properties.Resources.dinner;
             this.btnQLBan.Name = "btnQLBan";
             this.btnQLBan.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnQLBan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQLBan_ItemClick);
@@ -201,6 +208,7 @@
             this.btnHoaDon.Caption = "Hóa Đơn";
             this.btnHoaDon.Glyph = global::QuanLyQuanCafe.Properties.Resources.folder_invoices_icon;
             this.btnHoaDon.Id = 11;
+            this.btnHoaDon.LargeGlyph = global::QuanLyQuanCafe.Properties.Resources.invoice;
             this.btnHoaDon.Name = "btnHoaDon";
             this.btnHoaDon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnHoaDon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHoaDon_ItemClick);
@@ -229,6 +237,7 @@
             // 
             this.barButtonItem14.Caption = "Hướng dẫn";
             this.barButtonItem14.Id = 15;
+            this.barButtonItem14.LargeGlyph = global::QuanLyQuanCafe.Properties.Resources.seo;
             this.barButtonItem14.Name = "barButtonItem14";
             this.barButtonItem14.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
@@ -236,6 +245,7 @@
             // 
             this.barButtonItem15.Caption = "Thông tin Phần mềm";
             this.barButtonItem15.Id = 16;
+            this.barButtonItem15.LargeGlyph = global::QuanLyQuanCafe.Properties.Resources.if_infomation_83829;
             this.barButtonItem15.Name = "barButtonItem15";
             this.barButtonItem15.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
@@ -319,8 +329,26 @@
             this.btnBanHang.Caption = "Bán Hàng";
             this.btnBanHang.Glyph = global::QuanLyQuanCafe.Properties.Resources.b;
             this.btnBanHang.Id = 29;
+            this.btnBanHang.LargeGlyph = global::QuanLyQuanCafe.Properties.Resources.menu;
             this.btnBanHang.Name = "btnBanHang";
             this.btnBanHang.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnBanHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBanHang_ItemClick);
+            // 
+            // barButtonItem8
+            // 
+            this.barButtonItem8.Caption = "barButtonItem8";
+            this.barButtonItem8.Id = 30;
+            this.barButtonItem8.Name = "barButtonItem8";
+            // 
+            // btnCreateReport
+            // 
+            this.btnCreateReport.Caption = "Lập Báo Cáo";
+            this.btnCreateReport.Glyph = global::QuanLyQuanCafe.Properties.Resources.clipboard;
+            this.btnCreateReport.Id = 31;
+            this.btnCreateReport.LargeGlyph = global::QuanLyQuanCafe.Properties.Resources.clipboard;
+            this.btnCreateReport.Name = "btnCreateReport";
+            this.btnCreateReport.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnCreateReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCreateReport_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -328,7 +356,8 @@
             this.ribbonPageGroup7,
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup8});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "NGHIỆP VỤ";
             // 
@@ -355,6 +384,11 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.btnHoaDon);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.ShowCaptionButton = false;
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnCreateReport);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             // 
             // ribbonPage2
             // 
@@ -406,11 +440,13 @@
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1298, 749);
+            this.ClientSize = new System.Drawing.Size(1298, 787);
             this.Controls.Add(this.ribbonControl);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1300, 736);
             this.Name = "frmMain";
             this.Ribbon = this.ribbonControl;
@@ -418,6 +454,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÍ QUÁN CAFE";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).EndInit();
             this.ResumeLayout(false);
@@ -469,6 +506,9 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem btnBanHang;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
+        private DevExpress.XtraBars.BarButtonItem btnCreateReport;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
     }
 }
 

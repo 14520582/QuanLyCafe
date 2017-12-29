@@ -28,37 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvLoai = new DevExpress.XtraGrid.GridControl();
+            this.tbLoai = new System.Windows.Forms.TextBox();
+            this.quanLyQuanCafeDataSet11 = new QuanLyQuanCafe.QuanLyQuanCafeDataSet1();
+            this.image = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Category = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.image = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
-            this.dgvMenu = new DevExpress.XtraGrid.GridControl();
+            this.dgvLoai = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.tbLoai = new System.Windows.Forms.TextBox();
-            this.quanLyQuanCafeDataSet11 = new QuanLyQuanCafe.QuanLyQuanCafeDataSet1();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLoai)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            this.dgvMenu = new DevExpress.XtraGrid.GridControl();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyQuanCafeDataSet11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoai)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvLoai
+            // tbLoai
             // 
-            this.dgvLoai.Location = new System.Drawing.Point(5, 5);
-            this.dgvLoai.MainView = this.gridView1;
-            this.dgvLoai.Name = "dgvLoai";
-            this.dgvLoai.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.image});
-            this.dgvLoai.Size = new System.Drawing.Size(364, 188);
-            this.dgvLoai.TabIndex = 0;
-            this.dgvLoai.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            this.dgvLoai.Click += new System.EventHandler(this.dgvLoai_Click);
+            this.tbLoai.Location = new System.Drawing.Point(12, 154);
+            this.tbLoai.Name = "tbLoai";
+            this.tbLoai.Size = new System.Drawing.Size(100, 20);
+            this.tbLoai.TabIndex = 2;
+            this.tbLoai.TextChanged += new System.EventHandler(this.tbLoai_TextChanged);
+            // 
+            // quanLyQuanCafeDataSet11
+            // 
+            this.quanLyQuanCafeDataSet11.DataSetName = "QuanLyQuanCafeDataSet1";
+            this.quanLyQuanCafeDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // image
+            // 
+            this.image.Name = "image";
             // 
             // gridView1
             // 
@@ -76,19 +80,18 @@
             this.Category.VisibleIndex = 0;
             this.Category.Width = 301;
             // 
-            // image
+            // dgvLoai
             // 
-            this.image.Name = "image";
-            // 
-            // dgvMenu
-            // 
-            this.dgvMenu.Location = new System.Drawing.Point(5, 218);
-            this.dgvMenu.MainView = this.gridView2;
-            this.dgvMenu.Name = "dgvMenu";
-            this.dgvMenu.Size = new System.Drawing.Size(364, 271);
-            this.dgvMenu.TabIndex = 1;
-            this.dgvMenu.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.dgvLoai.Location = new System.Drawing.Point(5, 5);
+            this.dgvLoai.MainView = this.gridView1;
+            this.dgvLoai.Name = "dgvLoai";
+            this.dgvLoai.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.image});
+            this.dgvLoai.Size = new System.Drawing.Size(364, 188);
+            this.dgvLoai.TabIndex = 0;
+            this.dgvLoai.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            this.dgvLoai.Click += new System.EventHandler(this.dgvLoai_Click);
             // 
             // gridView2
             // 
@@ -123,18 +126,15 @@
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
-            // tbLoai
+            // dgvMenu
             // 
-            this.tbLoai.Location = new System.Drawing.Point(12, 154);
-            this.tbLoai.Name = "tbLoai";
-            this.tbLoai.Size = new System.Drawing.Size(100, 20);
-            this.tbLoai.TabIndex = 2;
-            this.tbLoai.TextChanged += new System.EventHandler(this.tbLoai_TextChanged);
-            // 
-            // quanLyQuanCafeDataSet11
-            // 
-            this.quanLyQuanCafeDataSet11.DataSetName = "QuanLyQuanCafeDataSet1";
-            this.quanLyQuanCafeDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dgvMenu.Location = new System.Drawing.Point(5, 218);
+            this.dgvMenu.MainView = this.gridView2;
+            this.dgvMenu.Name = "dgvMenu";
+            this.dgvMenu.Size = new System.Drawing.Size(364, 271);
+            this.dgvMenu.TabIndex = 1;
+            this.dgvMenu.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
             // 
             // Ngan
             // 
@@ -147,29 +147,28 @@
             this.Name = "Ngan";
             this.Text = "Ngan";
             this.Load += new System.EventHandler(this.Ngan_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLoai)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyQuanCafeDataSet11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoai)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraGrid.GridControl dgvLoai;
+        private System.Windows.Forms.TextBox tbLoai;
+        private QuanLyQuanCafeDataSet1 quanLyQuanCafeDataSet11;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit image;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn Category;
-        private DevExpress.XtraGrid.GridControl dgvMenu;
+        private DevExpress.XtraGrid.GridControl dgvLoai;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private System.Windows.Forms.TextBox tbLoai;
-        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit image;
-        private QuanLyQuanCafeDataSet1 quanLyQuanCafeDataSet11;
+        private DevExpress.XtraGrid.GridControl dgvMenu;
     }
 }

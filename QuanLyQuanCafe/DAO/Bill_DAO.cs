@@ -131,6 +131,65 @@ namespace QuanLyQuanCafe.DAO
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
-        
+        //Thong ke
+        public static DataTable StatisticByRevenue(int year)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("StatisticByRevenue", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Year", SqlDbType.Int);
+            cmd.Parameters["@Year"].Value = year;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtb = new DataTable();
+            da.Fill(dtb);
+            return dtb;
+        }
+        //top 10 san pham ban chay nhat
+        public static DataTable Top10Products(int month, int year)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("Top10Products", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Month", SqlDbType.Int);
+            cmd.Parameters.Add("@Year", SqlDbType.Int);
+            cmd.Parameters["@Month"].Value = month;
+            cmd.Parameters["@Year"].Value = year;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtb = new DataTable();
+            da.Fill(dtb);
+            return dtb;
+        }
+        //Nhung san pham ban khong chay
+        public static DataTable SplumpProducts(int month, int year, int num)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("SplumpProducts", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Month", SqlDbType.Int);
+            cmd.Parameters.Add("@Year", SqlDbType.Int);
+            cmd.Parameters.Add("@Num", SqlDbType.Int);
+            cmd.Parameters["@Month"].Value = month;
+            cmd.Parameters["@Year"].Value = year;
+            cmd.Parameters["@Num"].Value = num;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtb = new DataTable();
+            da.Fill(dtb);
+            return dtb;
+        }
+        //Nhung san pham ban khong được
+        public static DataTable UnmarketableProducts(int month, int year)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("UnmarketableProducts", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Month", SqlDbType.Int);
+            cmd.Parameters.Add("@Year", SqlDbType.Int);
+            cmd.Parameters["@Month"].Value = month;
+            cmd.Parameters["@Year"].Value = year;            
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtb = new DataTable();
+            da.Fill(dtb);
+            return dtb;
+        }
     }
 }

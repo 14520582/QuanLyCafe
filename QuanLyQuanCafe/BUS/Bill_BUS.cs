@@ -51,6 +51,21 @@ namespace QuanLyQuanCafe.BUS
         {
             Bill_DAO.EditTotalOfBill(idBill,Total);
         }
-
+        public static DataTable StatisticByRevenue(int year)
+        {
+            return Bill_DAO.StatisticByRevenue(year);
+        }
+        public static DataTable Top10Products(int month, int year)
+        {
+            return Bill_DAO.Top10Products(month, year);
+        }
+        public static DataTable SplumpProducts(int month, int year, int num)
+        {
+            return Bill_DAO.SplumpProducts(month, year, num);
+        }
+        public static DataTable UnmarketableProducts(int month, int year)
+        {
+            return Bill_DAO.UnmarketableProducts(month, year);
+        }
     }
 }

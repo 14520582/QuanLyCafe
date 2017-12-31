@@ -240,6 +240,7 @@
             this.barButtonItem14.LargeGlyph = global::QuanLyQuanCafe.Properties.Resources.seo;
             this.barButtonItem14.Name = "barButtonItem14";
             this.barButtonItem14.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem14.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem14_ItemClick);
             // 
             // barButtonItem15
             // 
@@ -248,6 +249,7 @@
             this.barButtonItem15.LargeGlyph = global::QuanLyQuanCafe.Properties.Resources.if_infomation_83829;
             this.barButtonItem15.Name = "barButtonItem15";
             this.barButtonItem15.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem15.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem15_ItemClick);
             // 
             // barButtonItem16
             // 
@@ -311,6 +313,7 @@
             this.btnThoatHeThong.Caption = "Đăng xuất";
             this.btnThoatHeThong.Id = 26;
             this.btnThoatHeThong.Name = "btnThoatHeThong";
+            this.btnThoatHeThong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoatHeThong_ItemClick);
             // 
             // barButtonItem2
             // 
@@ -440,14 +443,14 @@
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1298, 787);
+            this.ClientSize = new System.Drawing.Size(1298, 771);
             this.Controls.Add(this.ribbonControl);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1300, 736);
+            this.MinimumSize = new System.Drawing.Size(1300, 726);
             this.Name = "frmMain";
             this.Ribbon = this.ribbonControl;
             this.ShowIcon = false;

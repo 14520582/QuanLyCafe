@@ -35,5 +35,10 @@ namespace QuanLyQuanCafe.BUS
         {
             BillDetails_DAO.EditNumberOfInfo(bd);
         }
+
+        public static DataTable LoadBillInfoToReceiptByIdBill(int IdBill)
+        {
+            return BillDetails_DAO.LoadBillInfoToReceiptByIdBill(IdBill);
+        }
     }
 }

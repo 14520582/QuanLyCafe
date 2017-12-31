@@ -90,6 +90,19 @@ namespace QuanLyQuanCafe.DAO
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
-        
+
+        public static DataTable LoadBillInfoToReceiptByIdBill(int IdBill)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("LoadBillInfoToReceiptByIdBill", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@IdBill", SqlDbType.Int);
+            cmd.Parameters["@IdBill"].Value = IdBill;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtb = new DataTable();
+            da.Fill(dtb);
+            return dtb;
+        }
+
     }
 }

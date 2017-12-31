@@ -11,6 +11,14 @@ using QuanLyQuanCafe.BUS;
 using QuanLyQuanCafe.DAO;
 using System.Globalization;
 using QuanLyQuanCafe.DTO;
+using DevExpress.XtraPrinting;
+using DevExpress.XtraReports.UI;
+using DevExpress.XtraPrinting.Preview;
+//using System.IO;
+//using System.IO.IsolatedStorage;
+//using System.Diagnostics;
+//using PDFCreatorPilotLib;
+//using PDFPreviewHandlerHostLib;
 
 namespace QuanLyQuanCafe.VIEW
 {
@@ -20,9 +28,12 @@ namespace QuanLyQuanCafe.VIEW
         DataTable tableofbill = new DataTable();
         DataTable movingtable = new DataTable();
         DataTable billInfo = new DataTable();
+     
         int currentIdBill;
         bool creatingBill = false;
         bool moving = false;
+        DateTime current = DateTime.Now;
+        //ProcessStartInfo startInfo = new ProcessStartInfo();
         public frmService()
         {
             InitializeComponent();
@@ -588,6 +599,38 @@ namespace QuanLyQuanCafe.VIEW
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             dgvMenu.DataSource = Food_BUS.SearchByCategory(gridView1.GetFocusedRowCellValue("NameCategory").ToString());
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Receipt receipt  = new Receipt();
+            receipt.lbNgay.Text = current.ToString();
+            currentIdBill= Int32.Parse(gridView4.GetFocusedRowCellValue("IdBill").ToString());
+            receipt.lbMa.Text = currentIdBill.ToString();
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\User\Documents\GitHub\QLCF\readme.txt");
+            DataTable binfo = BillDetails_BUS.LoadBillInfoToReceiptByIdBill(currentIdBill);
+            List<ReceiptInfo_DTO> ListInfo = new List<ReceiptInfo_DTO>();
+
+            for (int i = 0; i < binfo.Rows.Count; i++)
+            {
+                ReceiptInfo_DTO info = new ReceiptInfo_DTO();
+                info.FoodName = binfo.Rows[i]["FoodName"].ToString();
+                info.Price = Convert.ToInt32(binfo.Rows[i]["Price"]);
+                //info.Price = 0;
+                info.Number = Convert.ToInt32(binfo.Rows[i]["Number"]);
+                info.Total = Convert.ToInt32(binfo.Rows[i]["Total"]);
+
+                ListInfo.Add(info);
+            }
+
+            receipt.DataSource = ListInfo;
+            receipt.lbTong.Text = binfo.Compute("Sum(Total)", "").ToString() + " VNĐ"; ;
+            receipt.lbWifi.Text = lines[0];
+            receipt.lbDT.Text = lines[1];
+            receipt.lbFB.Text = lines[2];
+            receipt.lbOpen.Text = lines[3];
+            ReportPrintTool tool = new ReportPrintTool(receipt);
+            tool.ShowPreview();
         }
     }
 }

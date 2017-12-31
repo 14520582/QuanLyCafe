@@ -63,6 +63,14 @@
     <Reference Include="DevExpress.XtraScheduler.v15.1, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v15.1.Core, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Interop.PDFCreatorPilotLib">
+      <HintPath>DLL\Interop.PDFCreatorPilotLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.PDFPreviewHandlerHostLib">
+      <HintPath>DLL\Interop.PDFPreviewHandlerHostLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -101,6 +109,7 @@
     <Compile Include="DTO\FoodUnit_DTO.cs" />
     <Compile Include="DTO\Food_DTO.cs" />
     <Compile Include="DTO\LOGIN_DTO.cs" />
+    <Compile Include="DTO\ReceiptInfo_DTO.cs" />
     <Compile Include="DTO\Table_DTO.cs" />
     <Compile Include="QuanLyQuanCafeDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -111,6 +120,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyQuanCafeDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
     <Compile Include="VIEW\frmInvoice.cs">
       <SubType>Form</SubType>
@@ -163,6 +178,12 @@
     <Compile Include="VIEW\Ngan.Designer.cs">
       <DependentUpon>Ngan.cs</DependentUpon>
     </Compile>
+    <Compile Include="VIEW\Receipt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VIEW\Receipt.Designer.cs">
+      <DependentUpon>Receipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\Tram.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +196,9 @@
     <Compile Include="VIEW\Report.Designer.cs">
       <DependentUpon>Report.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VIEW\frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmInvoice.resx">
       <DependentUpon>frmInvoice.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\Ngan.resx">
       <DependentUpon>Ngan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Receipt.resx">
+      <DependentUpon>Receipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\Report.resx">
       <DependentUpon>Report.cs</DependentUpon>

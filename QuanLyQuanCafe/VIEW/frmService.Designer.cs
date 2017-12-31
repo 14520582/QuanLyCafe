@@ -347,6 +347,7 @@
             this.btnPrint.Size = new System.Drawing.Size(27, 23);
             this.btnPrint.TabIndex = 10;
             this.btnPrint.Text = "In Hóa Đơn";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnTeminate
             // 
@@ -470,7 +471,7 @@
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(962, 0);
+            this.panel3.Location = new System.Drawing.Point(946, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(408, 554);
             this.panel3.TabIndex = 2;
@@ -588,7 +589,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 554);
+            this.ClientSize = new System.Drawing.Size(1354, 554);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

@@ -13,6 +13,7 @@ namespace QuanLyQuanCafe.VIEW
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+    
         public frmMain()
         {
             InitializeComponent();
@@ -108,6 +109,38 @@ namespace QuanLyQuanCafe.VIEW
         {
             Form dn = new frmReport();
             dn.ShowDialog();
+        }
+
+        private void barButtonItem14_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            System.Diagnostics.Process.Start("www.doubleNT/help");
+        }
+
+        private void barButtonItem15_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = IsActive(typeof(frmAbout));
+
+            if (f != null)
+                f.Activate();
+            else
+            {
+                f = new frmAbout();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnThoatHeThong_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form dn = new frmLogin();
+            dn.ShowDialog();
+        }
+
+        
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

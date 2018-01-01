@@ -142,5 +142,19 @@ namespace QuanLyQuanCafe.VIEW
         {
 
         }
+
+        private void btnChart_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = IsActive(typeof(frmThongKe));
+
+            if (f != null)
+                f.Activate();
+            else
+            {
+                f = new frmThongKe();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

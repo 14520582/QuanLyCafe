@@ -33,6 +33,8 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nUDsl = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
             this.nUDMonth = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.nudYear = new System.Windows.Forms.NumericUpDown();
@@ -45,15 +47,13 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.nUDsl = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDsl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nUDsl)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -76,12 +76,39 @@
             this.groupBox1.Controls.Add(this.btnThongKe);
             this.groupBox1.Controls.Add(this.cbxLoai);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(770, 84);
+            this.groupBox1.Size = new System.Drawing.Size(803, 84);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // nUDsl
+            // 
+            this.nUDsl.Location = new System.Drawing.Point(589, 24);
+            this.nUDsl.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nUDsl.Name = "nUDsl";
+            this.nUDsl.Size = new System.Drawing.Size(52, 20);
+            this.nUDsl.TabIndex = 27;
+            this.nUDsl.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(519, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "SL nhỏ hơn";
             // 
             // nUDMonth
             // 
@@ -185,10 +212,11 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(12, 100);
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 84);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(770, 335);
+            this.gridControl1.Size = new System.Drawing.Size(803, 370);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -226,50 +254,26 @@
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(519, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 13);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "SL nhỏ hơn";
-            // 
-            // nUDsl
-            // 
-            this.nUDsl.Location = new System.Drawing.Point(589, 24);
-            this.nUDsl.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nUDsl.Name = "nUDsl";
-            this.nUDsl.Size = new System.Drawing.Size(52, 20);
-            this.nUDsl.TabIndex = 27;
-            this.nUDsl.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // frmThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(803, 454);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmThongKe";
             this.Text = "Thống kê";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDsl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMonth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nUDsl)).EndInit();
             this.ResumeLayout(false);
 
         }

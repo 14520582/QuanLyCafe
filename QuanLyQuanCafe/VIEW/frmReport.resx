@@ -117,4 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAA
+        AAD///8A////ABIlYD8YMX6BEyZjZAAAADYAAAA2AAAANgAAADYAAAA2AAAANgAAADYAAAA2HEx0e1OL
+        u/hQirr/eHh4BnR0dCEsS6X/NV2v/yFCq//c3Nz/2NjY/9TU1P/S0tL/0dHR/9PT0//R0dH/mK3B/2mb
+        yf+Sud7/SIK198/Pzy7MzMz0xMbK/8DGzP8hQ6z//f39//v7+//17+v/6tfH/+bGq//mxan/37qc/7aj
+        l/+cuNP/ZprL/x9Ndnt4eHgGsbGxYGN5s/9hj7//Ikau//r6+v/6+vr/5tHA//Lcyf/4487/9+DH//ji
+        y//z0bP/sqOZ/7fN4/8AAAA2z8/PLszMzPTExsr/wMbM/yJJrv/6+vr/+vr6/+XEqP/15db/9NrB//PY
+        vf/z2L3/+OPM/9m2mv/8/Pz/AAAANnh4eAaxsbFgZHyz/2OSwf8jS6//+fn5//n5+f/gvZ7/+Orc//Td
+        xv/03MT/89i9//jizf/kwaT/6Ojo/wAAADbPz88uzMzM9MTGyv/Axs3/I06x//r6+v/5+fn/5saq//Pk
+        1v/24Mr/9d7G//Xexf/45tP/4MKo/9HR0f8DAwM4eHh4BrGxsWBlf7X/ZJTC/yRRsv/6+vr/+Pj4/9u9
+        ov/pzbT/9efb//js3//y3cn/69C4/97Kuf/s7Oz/AAAANs/Pzy7MzMz0xMbK/8DHzf8lUrL/+/v7//r6
+        +v/3+Pj/4dLB/9rGrP/hv6D/5cSn/+PNtv/p7e//7u7u9AAAADN4eHgGsbGxYGaCtf9llsP/JVW0//r6
+        +v/6+vr/4KJ2/+Cgdv/goHT/355z/9yccv/cm2//8vLy//b29v0AAAA2z8/PLszMzPTExsr/wMfN/yZW
+        tf/5+fn/+fn5/+GjeP/qwKP/6sCi/+q/of/qvqD/355x//T09P/39/f/AAAANnh4eAaxsbFgZ4O3/2aZ
+        xP8mWbf/+Pj4//j4+P/hpXr/4aN4/+Gjd//gonb/4KB2/+CgdP/09PT/+vr6/wAAADbPz88uzMzM9MTH
+        yv/Ax83/Jlu3//f39//39/f/9/f3//f39//39/f/9fX1//X19f/19fX/8/Pz//r6+v8AAAA2eHh4BrGx
+        sWBnh7n/Z5rF/ydeuP/39/f/9/f3//f39//39/f/9fX1//T09P/09PT/9PT0//Ly8v/7+/v/AAAANs/P
+        zy7MzMz0xMfK/8HHzf8nX7j//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8/wAA
+        ADb///8Az8/PSGSLwv9JeL7/KGG6/wAAADYAAAA2AAAANgAAADYAAAA2AAAANgAAADYAAAA2AAAANgAA
+        ADYAAAAgwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAgAAAAA==
+</value>
+  </data>
 </root>

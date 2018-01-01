@@ -207,6 +207,7 @@
             this.btThemLoai.Name = "btThemLoai";
             this.btThemLoai.Size = new System.Drawing.Size(27, 24);
             this.btThemLoai.TabIndex = 21;
+            this.btThemLoai.Click += new System.EventHandler(this.btThemLoai_Click);
             // 
             // groupControl1
             // 
@@ -333,6 +334,7 @@
             this.btHuy.Size = new System.Drawing.Size(103, 24);
             this.btHuy.TabIndex = 11;
             this.btHuy.Text = "Hủy";
+            this.btHuy.Click += new System.EventHandler(this.btHuy_Click);
             // 
             // btSua
             // 
@@ -346,6 +348,7 @@
             this.btSua.Size = new System.Drawing.Size(103, 24);
             this.btSua.TabIndex = 10;
             this.btSua.Text = "Sửa";
+            this.btSua.Click += new System.EventHandler(this.btSua_Click);
             // 
             // btXoa
             // 
@@ -359,6 +362,7 @@
             this.btXoa.Size = new System.Drawing.Size(103, 24);
             this.btXoa.TabIndex = 9;
             this.btXoa.Text = "Xóa";
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
             // btThem
             // 
@@ -372,6 +376,7 @@
             this.btThem.Size = new System.Drawing.Size(102, 24);
             this.btThem.TabIndex = 8;
             this.btThem.Text = "Thêm";
+            this.btThem.Click += new System.EventHandler(this.btThem_Click);
             // 
             // panel4
             // 

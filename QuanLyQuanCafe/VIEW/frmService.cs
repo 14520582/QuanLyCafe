@@ -364,6 +364,7 @@ namespace QuanLyQuanCafe.VIEW
                         BillDetails_BUS.InsertBillDetail(new BillDetails_DTO(currentIdBill, IdFood, Number));
                     }
                     Bill_BUS.EditTotalOfBill(currentIdBill, Int32.Parse(gridColumn6.SummaryItem.SummaryValue.ToString()));
+                    if(tableofbill.Rows.Count < 1)
                     billRow[0]["TotalPrice"] = Int32.Parse(gridColumn6.SummaryItem.SummaryValue.ToString());
                 }
             }
@@ -447,7 +448,8 @@ namespace QuanLyQuanCafe.VIEW
                         customerRow[0]["Total"] = (Number - reduceNumber) * Price;
                         BillDetails_BUS.EditNumberOfInfo(new BillDetails_DTO(currentIdBill, IdFood, Number - reduceNumber));
                         Bill_BUS.EditTotalOfBill(currentIdBill, Int32.Parse(gridColumn6.SummaryItem.SummaryValue.ToString()));
-                        billRow[0]["TotalPrice"] = Int32.Parse(gridColumn6.SummaryItem.SummaryValue.ToString());
+                        if (tableofbill.Rows.Count < 1)
+                            billRow[0]["TotalPrice"] = Int32.Parse(gridColumn6.SummaryItem.SummaryValue.ToString());
                     }
                 }
             }

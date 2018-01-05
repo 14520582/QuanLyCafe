@@ -25,5 +25,20 @@ namespace QuanLyQuanCafe.DAO
             cnn.Close();
             return kq;
         }
+
+        public static int getTypeByName(string nameAccount)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("getTypeByName", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Type", SqlDbType.Int).Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("@NameAccount", SqlDbType.NVarChar, 100);
+            cmd.Parameters["@NameAccount"].Value = nameAccount;
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            int type = Convert.ToInt32(cmd.Parameters["@Type"].Value);
+            cnn.Close();
+            return type;
+        }
     }
 }

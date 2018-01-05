@@ -17,8 +17,9 @@ namespace QuanLyQuanCafe.VIEW
         public frmMain()
         {
             InitializeComponent();
-            Form dn = new frmLogin();
+            frmLogin dn = new frmLogin();
             dn.ShowDialog();
+            checkUser(dn.getType());
         }
         //public void skins()
         //{
@@ -132,8 +133,12 @@ namespace QuanLyQuanCafe.VIEW
 
         private void btnThoatHeThong_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form dn = new frmLogin();
-            dn.ShowDialog();
+            if (MessageBox.Show("Bạn chắc chắn muốn đăng xuất?", "Xác Nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                frmLogin dn = new frmLogin();
+                dn.ShowDialog();
+                checkUser(dn.getType());
+            }
         }
 
         
@@ -154,6 +159,27 @@ namespace QuanLyQuanCafe.VIEW
                 f = new frmThongKe();
                 f.MdiParent = this;
                 f.Show();
+            }
+        }
+
+
+        public void checkUser(int userType)
+        {
+            if(userType == 1)
+            {
+                btnChart.Enabled = false;
+                btnCreateReport.Enabled = false;
+                btnMenu.Enabled = false;
+                btnQLBan.Enabled = false;
+                btnHoaDon.Enabled = false;
+            }
+            else
+            {
+                btnChart.Enabled = true;
+                btnCreateReport.Enabled = true;
+                btnMenu.Enabled = true;
+                btnQLBan.Enabled = true;
+                btnHoaDon.Enabled = true;
             }
         }
     }

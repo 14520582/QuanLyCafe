@@ -17,6 +17,7 @@ namespace QuanLyQuanCafe.VIEW
     public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
         bool isValid;
+        int type;
         public frmLogin()
         {
             InitializeComponent();
@@ -47,6 +48,7 @@ namespace QuanLyQuanCafe.VIEW
                 if (isValid)
                 {
                     this.Close();
+                    type = LOGIN_BUS.getTypeByName(txtTaiKhoan.Text);
                 }
                 else
                 {
@@ -66,6 +68,11 @@ namespace QuanLyQuanCafe.VIEW
             {
                 Application.Exit();
             }
+        }
+
+        public int getType()
+        {
+            return this.type;
         }
     }
 }

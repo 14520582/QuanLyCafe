@@ -620,7 +620,7 @@ namespace QuanLyQuanCafe.VIEW
             {
                 Receipt receipt = new Receipt();
                 receipt.lbNgay.Text = current.ToString();
-                currentIdBill = Int32.Parse(gridView4.GetFocusedRowCellValue("IdBill").ToString());
+                //currentIdBill = Int32.Parse(gridView4.GetFocusedRowCellValue("IdBill").ToString());
                 receipt.lbMa.Text = currentIdBill.ToString();
                 //string[] lines = System.IO.File.ReadAllLines(Application.StartupPath + "\\readme.txt");
                 //string[] lines = System.IO.File.ReadAllLines(@"D:\HK1-2017-2018\QLCF\QuanLyQuanCafe\readme.txt");

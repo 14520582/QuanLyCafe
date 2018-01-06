@@ -14,6 +14,7 @@ using QuanLyQuanCafe.DTO;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraPrinting.Preview;
+using System.IO;
 //using System.IO;
 //using System.IO.IsolatedStorage;
 //using System.Diagnostics;
@@ -28,11 +29,11 @@ namespace QuanLyQuanCafe.VIEW
         DataTable tableofbill = new DataTable();
         DataTable movingtable = new DataTable();
         DataTable billInfo = new DataTable();
-     
         int currentIdBill;
         bool creatingBill = false;
         bool moving = false;
         DateTime current = DateTime.Now;
+        DataTable shopinfo;
         //ProcessStartInfo startInfo = new ProcessStartInfo();
         public frmService()
         {
@@ -53,6 +54,7 @@ namespace QuanLyQuanCafe.VIEW
             billInfo.Columns.Add("Number", Type.GetType("System.Int32"));
             billInfo.Columns.Add("Total", Type.GetType("System.Int32"));
             gcBillInfo.DataSource = billInfo;
+            shopinfo = ShopInfo_BUS.GetShopInfo();
         }
 
         private void frmService_Load(object sender, EventArgs e)
@@ -441,7 +443,7 @@ namespace QuanLyQuanCafe.VIEW
                             customerRow[0].Delete();
                             BillDetails_BUS.DeleteBillInfo(currentIdBill, IdFood);
                             Bill_BUS.EditTotalOfBill(currentIdBill, Int32.Parse(gridColumn6.SummaryItem.SummaryValue.ToString()));
-                            billRow[0]["TotalPrice"] = Int32.Parse(gridColumn6.SummaryItem.SummaryValue.ToString());
+                           // billRow[0]["TotalPrice"] = Int32.Parse(gridColumn6.SummaryItem.SummaryValue.ToString());
                         }
                         else
                         {
@@ -614,34 +616,43 @@ namespace QuanLyQuanCafe.VIEW
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Receipt receipt  = new Receipt();
-            receipt.lbNgay.Text = current.ToString();
-            currentIdBill= Int32.Parse(gridView4.GetFocusedRowCellValue("IdBill").ToString());
-            receipt.lbMa.Text = currentIdBill.ToString();
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\User\Documents\GitHub\QLCF\readme.txt");
-            DataTable binfo = BillDetails_BUS.LoadBillInfoToReceiptByIdBill(currentIdBill);
-            List<ReceiptInfo_DTO> ListInfo = new List<ReceiptInfo_DTO>();
-
-            for (int i = 0; i < binfo.Rows.Count; i++)
+            if (billInfo.Rows.Count > 0)
             {
-                ReceiptInfo_DTO info = new ReceiptInfo_DTO();
-                info.FoodName = binfo.Rows[i]["FoodName"].ToString();
-                info.Price = Convert.ToInt32(binfo.Rows[i]["Price"]);
-                //info.Price = 0;
-                info.Number = Convert.ToInt32(binfo.Rows[i]["Number"]);
-                info.Total = Convert.ToInt32(binfo.Rows[i]["Total"]);
+                Receipt receipt = new Receipt();
+                receipt.lbNgay.Text = current.ToString();
+                currentIdBill = Int32.Parse(gridView4.GetFocusedRowCellValue("IdBill").ToString());
+                receipt.lbMa.Text = currentIdBill.ToString();
+                //string[] lines = System.IO.File.ReadAllLines(Application.StartupPath + "\\readme.txt");
+                //string[] lines = System.IO.File.ReadAllLines(@"D:\HK1-2017-2018\QLCF\QuanLyQuanCafe\readme.txt");
+                DataTable binfo = BillDetails_BUS.LoadBillInfoToReceiptByIdBill(currentIdBill);
+                List<ReceiptInfo_DTO> ListInfo = new List<ReceiptInfo_DTO>();
 
-                ListInfo.Add(info);
+                for (int i = 0; i < binfo.Rows.Count; i++)
+                {
+                    ReceiptInfo_DTO info = new ReceiptInfo_DTO();
+                    info.FoodName = binfo.Rows[i]["FoodName"].ToString();
+                    info.Price = Convert.ToInt32(binfo.Rows[i]["Price"]);
+                    //info.Price = 0;
+                    info.Number = Convert.ToInt32(binfo.Rows[i]["Number"]);
+                    info.Total = Convert.ToInt32(binfo.Rows[i]["Total"]);
+
+                    ListInfo.Add(info);
+                }
+
+                receipt.DataSource = ListInfo;
+                receipt.lbTong.Text = binfo.Compute("Sum(Total)", "").ToString() + " VNĐ"; ;
+                receipt.lbWifi.Text = shopinfo.Rows[0]["Wifi"].ToString();
+                receipt.lbName.Text = shopinfo.Rows[0]["Name"].ToString();
+                receipt.lbAddress.Text = shopinfo.Rows[0]["Address"].ToString();
+                receipt.lbDT.Text = shopinfo.Rows[0]["Phone"].ToString();
+                receipt.lbFB.Text = shopinfo.Rows[0]["Facebook"].ToString();
+                receipt.lbOpen.Text = shopinfo.Rows[0]["OpenAndCloseTime"].ToString();
+                ReportPrintTool tool = new ReportPrintTool(receipt);
+                tool.ShowPreview();
+            }else
+            {
+                MessageBox.Show("Vui lòng chọn hóa đơn muốn in");
             }
-
-            receipt.DataSource = ListInfo;
-            receipt.lbTong.Text = binfo.Compute("Sum(Total)", "").ToString() + " VNĐ"; ;
-            receipt.lbWifi.Text = lines[0];
-            receipt.lbDT.Text = lines[1];
-            receipt.lbFB.Text = lines[2];
-            receipt.lbOpen.Text = lines[3];
-            ReportPrintTool tool = new ReportPrintTool(receipt);
-            tool.ShowPreview();
         }
 
         private void refreshTable_Click(object sender, EventArgs e)

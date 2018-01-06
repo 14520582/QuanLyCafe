@@ -76,6 +76,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Web" />
@@ -98,6 +99,7 @@
     <Compile Include="BUS\FoodUnit_BUS.cs" />
     <Compile Include="BUS\Food_BUS.cs" />
     <Compile Include="BUS\LOGIN_BUS.cs" />
+    <Compile Include="BUS\ShopInfo_BUS.cs" />
     <Compile Include="BUS\Table_BUS.cs" />
     <Compile Include="DAO\BillDetails_DAO.cs" />
     <Compile Include="DAO\BillTable_DAO.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="DAO\FoodUnit_DAO.cs" />
     <Compile Include="DAO\Food_DAO.cs" />
     <Compile Include="DAO\LOGIN_DAO.cs" />
+    <Compile Include="DAO\ShopInfo_DAO.cs" />
     <Compile Include="DAO\Table_DAO.cs" />
     <Compile Include="DTO\BillDetails_DTO.cs" />
     <Compile Include="DTO\BillTable_DTO.cs" />
@@ -115,6 +118,7 @@
     <Compile Include="DTO\Food_DTO.cs" />
     <Compile Include="DTO\LOGIN_DTO.cs" />
     <Compile Include="DTO\ReceiptInfo_DTO.cs" />
+    <Compile Include="DTO\ShopInfo_DTO.cs" />
     <Compile Include="DTO\Table_DTO.cs" />
     <Compile Include="QuanLyQuanCafeDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -170,6 +174,12 @@
     </Compile>
     <Compile Include="VIEW\frmService.Designer.cs">
       <DependentUpon>frmService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\frmShopInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\frmShopInfo.Designer.cs">
+      <DependentUpon>frmShopInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="VIEW\frmTable.cs">
       <SubType>Form</SubType>
@@ -239,6 +249,9 @@
     <EmbeddedResource Include="VIEW\frmService.resx">
       <DependentUpon>frmService.cs</DependentUpon>
       <LastGenOutput>frmService1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\frmShopInfo.resx">
+      <DependentUpon>frmShopInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmTable.resx">
       <DependentUpon>frmTable.cs</DependentUpon>

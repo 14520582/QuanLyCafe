@@ -15,7 +15,8 @@ namespace QuanLyQuanCafe.DAO
         
         public static SqlConnection Connect()
         {
-            connect = @"Data Source=.;Initial Catalog=QuanLyQuanCafe;Integrated Security=True";
+            connect = ConfigurationManager.ConnectionStrings["QuanLyQuanCafe.Properties.Settings.QuanLyQuanCafeConnectionString"].ConnectionString;
+            //connect = @"Data Source=.;Initial Catalog=QuanLyQuanCafe;Integrated Security=True";
             SqlConnection cnn = new SqlConnection(connect);
                       
             return cnn;

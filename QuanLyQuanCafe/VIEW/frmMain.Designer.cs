@@ -51,7 +51,7 @@
             this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.btnQuanLy = new DevExpress.XtraBars.BarButtonItem();
+            this.btnShopInfo = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
@@ -106,7 +106,7 @@
             this.barButtonItem17,
             this.barButtonItem18,
             this.barButtonItem1,
-            this.btnQuanLy,
+            this.btnShopInfo,
             this.barButtonItem3,
             this.barButtonItem5,
             this.barButtonItem6,
@@ -281,11 +281,12 @@
             this.barButtonItem1.Id = 20;
             this.barButtonItem1.Name = "barButtonItem1";
             // 
-            // btnQuanLy
+            // btnShopInfo
             // 
-            this.btnQuanLy.Caption = "Quản lý";
-            this.btnQuanLy.Id = 21;
-            this.btnQuanLy.Name = "btnQuanLy";
+            this.btnShopInfo.Caption = "Thông tin quán";
+            this.btnShopInfo.Id = 21;
+            this.btnShopInfo.Name = "btnShopInfo";
+            this.btnShopInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnShopInfo_ItemClick);
             // 
             // barButtonItem3
             // 
@@ -429,7 +430,7 @@
             // 
             // ribbonPageGroup3
             // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.btnQuanLy);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnShopInfo);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnThoatHeThong);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Người dùng";
@@ -517,7 +518,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem18;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem btnQuanLy;
+        private DevExpress.XtraBars.BarButtonItem btnShopInfo;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;

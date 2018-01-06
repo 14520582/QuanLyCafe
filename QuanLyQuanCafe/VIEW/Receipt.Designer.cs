@@ -43,8 +43,8 @@
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbAddress = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbName = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -153,8 +153,8 @@
             this.xrLabel6,
             this.xrLabel4,
             this.xrLabel3,
-            this.xrLabel2,
-            this.xrLabel1,
+            this.lbAddress,
+            this.lbName,
             this.xrTable1});
             this.TopMargin.HeightF = 176.3333F;
             this.TopMargin.Name = "TopMargin";
@@ -219,25 +219,29 @@
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.Text = "Mã hóa đơn:";
             // 
-            // xrLabel2
+            // lbAddress
             // 
-            this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(27.9583F, 33.00001F);
-            this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(301.0417F, 23F);
-            this.xrLabel2.StylePriority.UseFont = false;
-            this.xrLabel2.Text = "Khu phố 6, phường Linh Trung, Thủ Đức";
+            this.lbAddress.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAddress.LocationFloat = new DevExpress.Utils.PointFloat(27.9583F, 33.00001F);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lbAddress.SizeF = new System.Drawing.SizeF(301.0417F, 23F);
+            this.lbAddress.StylePriority.UseFont = false;
+            this.lbAddress.StylePriority.UseTextAlignment = false;
+            this.lbAddress.Text = "Khu phố 6, phường Linh Trung, Thủ Đức";
+            this.lbAddress.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
-            // xrLabel1
+            // lbName
             // 
-            this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(122.9167F, 10.00001F);
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(121.875F, 23F);
-            this.xrLabel1.StylePriority.UseFont = false;
-            this.xrLabel1.Text = "ABC coffee";
+            this.lbName.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.LocationFloat = new DevExpress.Utils.PointFloat(27.9583F, 10.00001F);
+            this.lbName.Name = "lbName";
+            this.lbName.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lbName.SizeF = new System.Drawing.SizeF(276.2084F, 23F);
+            this.lbName.StylePriority.UseFont = false;
+            this.lbName.StylePriority.UseTextAlignment = false;
+            this.lbName.Text = "ABC coffee";
+            this.lbName.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrTable1
             // 
@@ -471,8 +475,6 @@
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
         private DevExpress.XtraReports.UI.XRLabel xrLabel11;
         private DevExpress.XtraReports.UI.XRLabel xrLabel10;
@@ -505,5 +507,7 @@
         public DevExpress.XtraReports.UI.CalculatedField Price;
         public DevExpress.XtraReports.UI.CalculatedField Number;
         public DevExpress.XtraReports.UI.CalculatedField Total;
+        public DevExpress.XtraReports.UI.XRLabel lbAddress;
+        public DevExpress.XtraReports.UI.XRLabel lbName;
     }
 }

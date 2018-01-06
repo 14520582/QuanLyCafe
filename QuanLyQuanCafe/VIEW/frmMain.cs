@@ -13,7 +13,6 @@ namespace QuanLyQuanCafe.VIEW
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-    
         public frmMain()
         {
             InitializeComponent();
@@ -181,6 +180,12 @@ namespace QuanLyQuanCafe.VIEW
                 btnQLBan.Enabled = true;
                 btnHoaDon.Enabled = true;
             }
+        }
+
+        private void btnShopInfo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmShopInfo a = new frmShopInfo();
+            a.ShowDialog();
         }
     }
 }

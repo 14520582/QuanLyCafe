@@ -326,6 +326,7 @@
     <None Include="Picture\cocktail.png" />
     <None Include="Picture\if_infomation_83829.png" />
     <None Include="Picture\seo.png" />
+    <None Include="Picture\analytics.png" />
     <Content Include="Picture\table.png" />
     <None Include="Resources\btnSave.Image.bmp" />
     <None Include="Resources\btnSave.Image.ico" />

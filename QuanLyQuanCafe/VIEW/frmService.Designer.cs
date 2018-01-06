@@ -37,6 +37,7 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.number = new System.Windows.Forms.NumericUpDown();
@@ -75,11 +76,19 @@
             this.Category = new DevExpress.XtraGrid.Columns.GridColumn();
             this.image = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.quanLyQuanCafeDataSet11 = new QuanLyQuanCafe.QuanLyQuanCafeDataSet1();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.refreshTable = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcBillTakeAway)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            this.panel9.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.number)).BeginInit();
             this.panel6.SuspendLayout();
@@ -102,6 +111,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.panel8);
+            this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -113,10 +123,10 @@
             // 
             this.panel8.Controls.Add(this.groupBox2);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 385);
+            this.panel8.Location = new System.Drawing.Point(0, 379);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(449, 169);
-            this.panel8.TabIndex = 2;
+            this.panel8.Size = new System.Drawing.Size(449, 175);
+            this.panel8.TabIndex = 4;
             // 
             // groupBox2
             // 
@@ -124,10 +134,10 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(449, 169);
+            this.groupBox2.Size = new System.Drawing.Size(449, 175);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Đem về";
+            this.groupBox2.Text = "Hóa đơn mang đi";
             // 
             // gcBillTakeAway
             // 
@@ -135,8 +145,8 @@
             this.gcBillTakeAway.Location = new System.Drawing.Point(3, 16);
             this.gcBillTakeAway.MainView = this.gridView4;
             this.gcBillTakeAway.Name = "gcBillTakeAway";
-            this.gcBillTakeAway.Size = new System.Drawing.Size(443, 150);
-            this.gcBillTakeAway.TabIndex = 8;
+            this.gcBillTakeAway.Size = new System.Drawing.Size(443, 156);
+            this.gcBillTakeAway.TabIndex = 9;
             this.gcBillTakeAway.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
             // 
@@ -151,7 +161,6 @@
             this.gridView4.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn7, DevExpress.Data.ColumnSortOrder.Descending)});
             this.gridView4.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView4_RowClick);
-            this.gridView4.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView4_FocusedRowChanged);
             // 
             // gridColumn7
             // 
@@ -182,13 +191,28 @@
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 2;
             // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.refreshTable);
+            this.panel9.Controls.Add(this.label3);
+            this.panel9.Controls.Add(this.button3);
+            this.panel9.Controls.Add(this.label2);
+            this.panel9.Controls.Add(this.button2);
+            this.panel9.Controls.Add(this.label1);
+            this.panel9.Controls.Add(this.button1);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 347);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(449, 32);
+            this.panel9.TabIndex = 3;
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(449, 385);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(449, 347);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // panel2
@@ -585,6 +609,70 @@
             this.quanLyQuanCafeDataSet11.DataSetName = "QuanLyQuanCafeDataSet1";
             this.quanLyQuanCafeDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 23);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(45, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Trống";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(128, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Đã có người";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(86, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(36, 23);
+            this.button2.TabIndex = 2;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(241, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Đang chọn";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button3.Location = new System.Drawing.Point(199, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(36, 23);
+            this.button3.TabIndex = 4;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // refreshTable
+            // 
+            this.refreshTable.Image = ((System.Drawing.Image)(resources.GetObject("refreshTable.Image")));
+            this.refreshTable.Location = new System.Drawing.Point(408, 3);
+            this.refreshTable.Name = "refreshTable";
+            this.refreshTable.Size = new System.Drawing.Size(22, 23);
+            this.refreshTable.TabIndex = 6;
+            this.refreshTable.Click += new System.EventHandler(this.refreshTable_Click);
+            // 
             // frmService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -602,6 +690,8 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcBillTakeAway)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.number)).EndInit();
             this.panel6.ResumeLayout(false);
@@ -655,13 +745,6 @@
         private DevExpress.XtraEditors.SimpleButton btnTeminate;
         private DevExpress.XtraEditors.SimpleButton btnPay;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private DevExpress.XtraGrid.GridControl gcBillTakeAway;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private DevExpress.XtraEditors.SimpleButton btnCreateBill;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
@@ -671,5 +754,20 @@
         private DevExpress.XtraEditors.SimpleButton btnCancelMove;
         private DevExpress.XtraEditors.SimpleButton btnConfirmMove;
         private System.Windows.Forms.DateTimePicker dtDate;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private DevExpress.XtraGrid.GridControl gcBillTakeAway;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private DevExpress.XtraEditors.SimpleButton refreshTable;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
     }
 }

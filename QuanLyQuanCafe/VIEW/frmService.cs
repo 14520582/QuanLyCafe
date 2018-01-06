@@ -202,6 +202,7 @@ namespace QuanLyQuanCafe.VIEW
 
         private void btnCreateBill_Click(object sender, EventArgs e)
         {
+            refreshTable.Enabled = false;
             creatingBill = true;
             billInfo.Rows.Clear();
             btnCancel.Visible = true;
@@ -220,52 +221,56 @@ namespace QuanLyQuanCafe.VIEW
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(Int32.Parse(tbTotal.Text) + "");
-            //xu ly bill
-            
-            Bill_DTO newBill = new Bill_DTO(Int32.Parse(gridColumn6.SummaryItem.SummaryValue.ToString()), 0, DateTime.Now);
-            //Bill_DTO newBill = new Bill_DTO(Int32.Parse(tbTotal.Text), 0, DateTime.Now);
-            Bill_BUS.InsertBill(newBill);
-            currentIdBill = Bill_BUS.GetLastIdBill();
-            //xu ly bill info
-            for (int i = 0; i < billInfo.Rows.Count; i++)
+            if (billInfo.Rows.Count > 0)
             {
-                int idFood = Int32.Parse(billInfo.Rows[i]["IdFood"].ToString());
-                int number = Int32.Parse(billInfo.Rows[i]["Number"].ToString());
-                BillDetails_BUS.InsertBillDetail(new BillDetails_DTO(currentIdBill, idFood, number));
-            }
-            //billInfo.Rows.Clear();
-            //xu ly table of bill
-            nameBill.Text = "Hóa Đơn - Bàn ";
-            for (int i = 0; i < tableofbill.Rows.Count; i++)
+                Bill_DTO newBill = new Bill_DTO(Int32.Parse(gridColumn6.SummaryItem.SummaryValue.ToString()), 0, DateTime.Now);
+                //Bill_DTO newBill = new Bill_DTO(Int32.Parse(tbTotal.Text), 0, DateTime.Now);
+                Bill_BUS.InsertBill(newBill);
+                currentIdBill = Bill_BUS.GetLastIdBill();
+                //xu ly bill info
+                for (int i = 0; i < billInfo.Rows.Count; i++)
+                {
+                    int idFood = Int32.Parse(billInfo.Rows[i]["IdFood"].ToString());
+                    int number = Int32.Parse(billInfo.Rows[i]["Number"].ToString());
+                    BillDetails_BUS.InsertBillDetail(new BillDetails_DTO(currentIdBill, idFood, number));
+                }
+                //billInfo.Rows.Clear();
+                //xu ly table of bill
+                nameBill.Text = "Hóa Đơn - Bàn ";
+                for (int i = 0; i < tableofbill.Rows.Count; i++)
+                {
+                    //int status = Int32.Parse(foundRows[0]["Status"].ToString());
+                    int idTable = Int32.Parse(tableofbill.Rows[i]["IdTable"].ToString());
+                    DataRow[] foundRows = tablelist.Select("IdTable = " + idTable);
+                    foundRows[0]["Status"] = 1;
+                    Table_BUS.EditStatusOfTable(idTable, 1);
+                    BillTable_BUS.AddTableIntoBill(new BillTable_DTO(currentIdBill, idTable));
+                    ((Button)flowLayoutPanel1.Controls[tableofbill.Rows[i]["IdTable"].ToString()]).Image = (Image)(Properties.Resources.occupy);
+                    flowLayoutPanel1.Controls[tableofbill.Rows[i]["IdTable"].ToString()].BackColor = Color.FromArgb(249, 64, 64);
+                    nameBill.Text += " " + flowLayoutPanel1.Controls[tableofbill.Rows[i]["IdTable"].ToString()].Text.Trim();
+                }
+                if (tableofbill.Rows.Count < 1)
+                {
+                    gcBillTakeAway.DataSource = Bill_BUS.LoadBillTakeAway();
+                    nameBill.Text = "Hóa Đơn - " + currentIdBill + " (Mang về)";
+                }
+                //tableofbill.Rows.Clear();
+                btnCreateBill.Visible = true;
+                //btnAddInfo.Enabled = false;
+                btnCancel.Visible = false;
+                //btnReduce.Enabled = false;
+                btnSave.Visible = false;
+                btnPay.Enabled = true;
+                btnPrint.Enabled = true;
+                btnTeminate.Enabled = true;
+                btnMove.Enabled = true;
+                creatingBill = false;
+                refreshTable.Enabled = true;
+                //tbTotal.Text = "0";
+            }else
             {
-                //int status = Int32.Parse(foundRows[0]["Status"].ToString());
-                int idTable = Int32.Parse(tableofbill.Rows[i]["IdTable"].ToString());
-                DataRow[] foundRows = tablelist.Select("IdTable = " + idTable);
-                foundRows[0]["Status"] = 1;
-                Table_BUS.EditStatusOfTable(idTable, 1);
-                BillTable_BUS.AddTableIntoBill(new BillTable_DTO(currentIdBill, idTable));
-                ((Button)flowLayoutPanel1.Controls[tableofbill.Rows[i]["IdTable"].ToString()]).Image = (Image)(Properties.Resources.occupy);
-                flowLayoutPanel1.Controls[tableofbill.Rows[i]["IdTable"].ToString()].BackColor = Color.FromArgb(249, 64, 64);
-                nameBill.Text += " " + flowLayoutPanel1.Controls[tableofbill.Rows[i]["IdTable"].ToString()].Text.Trim();
+                MessageBox.Show("Không thể lập hóa đơn trống");
             }
-            if (tableofbill.Rows.Count < 1)
-            {
-                gcBillTakeAway.DataSource = Bill_BUS.LoadBillTakeAway();
-                nameBill.Text = "Hóa Đơn - " + currentIdBill + " (Mang về)";
-            }
-            //tableofbill.Rows.Clear();
-            btnCreateBill.Visible = true;
-            //btnAddInfo.Enabled = false;
-            btnCancel.Visible = false;
-            //btnReduce.Enabled = false;
-            btnSave.Visible = false;
-            btnPay.Enabled = true;
-            btnPrint.Enabled = true;
-            btnTeminate.Enabled = true;
-            btnMove.Enabled = true;
-            creatingBill = false;
-            //tbTotal.Text = "0";
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -280,7 +285,8 @@ namespace QuanLyQuanCafe.VIEW
             btnCancel.Visible = false;
             btnSave.Visible = false;
             creatingBill = false;
-           // tbTotal.Text = "0";
+            refreshTable.Enabled = true;
+            // tbTotal.Text = "0";
             billInfo.Rows.Clear();
             for(int i = 0; i < tableofbill.Rows.Count; i++)
             {
@@ -483,6 +489,7 @@ namespace QuanLyQuanCafe.VIEW
         {
             if (tableofbill.Rows.Count > 0)
             {
+                refreshTable.Enabled = false;
                 moving = true;
                 btnConfirmMove.Visible = true;
                 btnCancelMove.Visible = true;
@@ -513,6 +520,7 @@ namespace QuanLyQuanCafe.VIEW
                 btnPrint.Enabled = true;
                 btnTeminate.Enabled = true;
                 btnCreateBill.Enabled = true;
+                refreshTable.Enabled = true;
                 BillTable_BUS.DeleteAllTablesOfBill(currentIdBill);
                 for (int i = 0; i < tableofbill.Rows.Count; i++)
                 {
@@ -550,6 +558,7 @@ namespace QuanLyQuanCafe.VIEW
             btnPrint.Enabled = true;
             btnTeminate.Enabled = true;
             btnCreateBill.Enabled = true;
+            refreshTable.Enabled = true;
             for (int i = 0; i < movingtable.Rows.Count; i++)
             {
                 string idTable = movingtable.Rows[i]["IdTable"].ToString();
@@ -633,6 +642,12 @@ namespace QuanLyQuanCafe.VIEW
             receipt.lbOpen.Text = lines[3];
             ReportPrintTool tool = new ReportPrintTool(receipt);
             tool.ShowPreview();
+        }
+
+        private void refreshTable_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            LoadTable();
         }
     }
 }

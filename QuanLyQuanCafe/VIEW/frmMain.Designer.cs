@@ -360,6 +360,7 @@
             // 
             this.btnChart.Caption = "Thống kê";
             this.btnChart.Id = 32;
+            this.btnChart.LargeGlyph = global::QuanLyQuanCafe.Properties.Resources.analytics;
             this.btnChart.Name = "btnChart";
             this.btnChart.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChart_ItemClick);
             // 
@@ -403,11 +404,13 @@
             // 
             this.ribbonPageGroup8.ItemLinks.Add(this.btnCreateReport);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.ShowCaptionButton = false;
             // 
             // ribbonPageGroup9
             // 
             this.ribbonPageGroup9.ItemLinks.Add(this.btnChart);
             this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.ShowCaptionButton = false;
             // 
             // ribbonPage2
             // 

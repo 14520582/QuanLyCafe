@@ -80,8 +80,8 @@ namespace QuanLyQuanCafe.VIEW
         private void LoadFood()
         {
             tbMa.Enabled = false;
-            tbTen.Enabled = false;
-            tbDG.Enabled = false;
+            tbTen.ReadOnly = true;
+            tbDG.ReadOnly = true;
             cbDV.Enabled = false;
             cbLoai.Enabled = false;
             btHuy.Enabled = false;
@@ -114,13 +114,15 @@ namespace QuanLyQuanCafe.VIEW
             {
                 flagThem = 1;
                 btThem.Text = "Lưu";
-                tbTen.Enabled = true;
-                tbDG.Enabled = true;
+                tbTen.ReadOnly = false;
+                tbDG.ReadOnly = false;
                 cbDV.Enabled = true;
                 cbLoai.Enabled = true;
                 btXoa.Enabled = false;
                 btSua.Enabled = false;
                 btHuy.Enabled = true;
+                tbTen.Text = "";
+                tbDG.Text = "";
 
             }
             else
@@ -129,8 +131,8 @@ namespace QuanLyQuanCafe.VIEW
                 {
                     flagThem = 0;
                     btThem.Text = "Thêm";
-                    tbTen.Enabled = false;
-                    tbDG.Enabled = false;
+                    tbTen.ReadOnly = true;
+                    tbDG.ReadOnly = true;
                     cbDV.Enabled = false;
                     cbLoai.Enabled = false;
                     btXoa.Enabled = true;
@@ -160,8 +162,8 @@ namespace QuanLyQuanCafe.VIEW
             {
                 flagSua = 1;
                 btSua.Text = "Lưu";
-                tbTen.Enabled = true;
-                tbDG.Enabled = true;
+                tbTen.ReadOnly = false;
+                tbDG.ReadOnly = false;
                 cbDV.Enabled = true;
                 cbLoai.Enabled = true;
                 btXoa.Enabled = false;
@@ -174,8 +176,8 @@ namespace QuanLyQuanCafe.VIEW
                 {
                     flagSua = 0;
                     btSua.Text = "Sửa";
-                    tbTen.Enabled = false;
-                    tbDG.Enabled = false;
+                    tbTen.ReadOnly = true;
+                    tbDG.ReadOnly = true;
                     cbDV.Enabled = false;
                     cbLoai.Enabled = false;
                     btXoa.Enabled = true;
@@ -252,14 +254,14 @@ namespace QuanLyQuanCafe.VIEW
   
 
         private void btThemLoai_Click(object sender, EventArgs e)
-        {
-            
+        {           
 
             try
             {
                 FoodCategory_BUS.AddFoodCategory(tbLoaiMoi.Text);
                 LoadFood();
                 MessageBox.Show("Thêm loại mới thành công");
+                tbLoaiMoi.Text = "";
             }
             catch (Exception ex)
             {

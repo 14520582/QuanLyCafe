@@ -28,9 +28,8 @@ namespace QuanLyQuanCafe.VIEW
         private void LoadTable()
         {
             txtSoLuong.Text = Table_BUS.CountTable().ToString();
-            txtSoLuong.Enabled = false;
-            txtBan.Enabled = false;
-            txtViTri.Enabled = false;
+            txtBan.ReadOnly = true;
+            txtViTri.ReadOnly = true;
             cbxTinhTrang.Enabled = false; 
                                                    
         }
@@ -43,14 +42,14 @@ namespace QuanLyQuanCafe.VIEW
             txtViTri.DataBindings.Clear();
             txtViTri.DataBindings.Add("Text", dgvBan.DataSource, "Location");
             cbxTinhTrang.DataBindings.Clear();
-            cbxTinhTrang.DataBindings.Add("Text", dgvBan.DataSource, "Status");
+            cbxTinhTrang.DataBindings.Add("ValueMember", dgvBan.DataSource, "Status");
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             flag = 1;
-            txtBan.Enabled = true;
-            txtViTri.Enabled = true;
+            txtBan.ReadOnly = false;
+            txtViTri.ReadOnly = false;
             cbxTinhTrang.Enabled = true;
 
             txtBan.Text = "";
@@ -69,13 +68,14 @@ namespace QuanLyQuanCafe.VIEW
             {
                 if(Table_BUS.CheckValidTable(txtBan.Text) == 1)
                 {
+                    string status;
                     if (cbxTinhTrang.Text == "Trống")
                     {
-                        cbxTinhTrang.Text = "0";
+                        status = "0";
                     }
                     else
-                        cbxTinhTrang.Text = "1";
-                    Table_DTO table = new Table_DTO(txtBan.Text, txtViTri.Text, cbxTinhTrang.Text);                  
+                        status = "1";
+                    Table_DTO table = new Table_DTO(txtBan.Text, txtViTri.Text, status);                  
                     Table_BUS.AddTable(table);
                     MessageBox.Show("Lưu thành công");
                 }
@@ -86,22 +86,23 @@ namespace QuanLyQuanCafe.VIEW
             }
             else //sửa
             {
+                string status;
                 if (cbxTinhTrang.Text == "Trống")
                 {
-                    cbxTinhTrang.Text = "0";
+                    status = "0";
                 }
                 else
-                    cbxTinhTrang.Text = "1";
+                    status  = "1";
                 DataRow row = gridView1.GetDataRow(gridView1.FocusedRowHandle);
-                Table_DTO table = new Table_DTO(txtBan.Text, txtViTri.Text, cbxTinhTrang.Text);
+                Table_DTO table = new Table_DTO(txtBan.Text, txtViTri.Text, status);
                 Table_BUS.EditTable(table, row[0].ToString());
                 MessageBox.Show("Sửa thành công");
 
             }
             dgvBan.DataSource = Table_BUS.LoadTable();
             bindingData();
-            txtBan.Enabled = false;
-            txtViTri.Enabled = false;
+            txtBan.ReadOnly = true;
+            txtViTri.ReadOnly = true;
             cbxTinhTrang.Enabled = false;
             txtSoLuong.Text = Table_BUS.CountTable().ToString();
             btnLuu.Enabled = false;
@@ -137,8 +138,8 @@ namespace QuanLyQuanCafe.VIEW
         private void btnSua_Click(object sender, EventArgs e)
         {
             flag = 0;
-            txtBan.Enabled = true;
-            txtViTri.Enabled = true;
+            txtBan.ReadOnly = false;
+            txtViTri.ReadOnly = false;
             cbxTinhTrang.Enabled = true;
             btnXoa.Enabled = false;
             btnThem.Enabled = false;
@@ -164,6 +165,14 @@ namespace QuanLyQuanCafe.VIEW
                 if (Convert.ToDecimal(e.Value) == 0) e.DisplayText = "Trống";
                 if (Convert.ToDecimal(e.Value) == 1) e.DisplayText = "Đang sử dụng";
             }
+        }
+
+        private void cbxTinhTrang_ValueMemberChanged(object sender, EventArgs e)
+        {
+            if(Int32.Parse(cbxTinhTrang.ValueMember) == 0)
+                cbxTinhTrang.Text = "Trống";
+            else
+                cbxTinhTrang.Text = "Đang sử dụng";
         }
     }
 }

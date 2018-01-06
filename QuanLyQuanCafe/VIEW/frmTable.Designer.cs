@@ -134,6 +134,7 @@
             this.txtSoLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoLuong.Location = new System.Drawing.Point(906, 12);
             this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.ReadOnly = true;
             this.txtSoLuong.Size = new System.Drawing.Size(110, 21);
             this.txtSoLuong.TabIndex = 9;
             // 
@@ -262,6 +263,7 @@
             this.cbxTinhTrang.TabIndex = 16;
             this.cbxTinhTrang.Text = "Trống";
             this.cbxTinhTrang.SelectedIndexChanged += new System.EventHandler(this.cbxTinhTrang_SelectedIndexChanged);
+            this.cbxTinhTrang.ValueMemberChanged += new System.EventHandler(this.cbxTinhTrang_ValueMemberChanged);
             // 
             // btnSua
             // 

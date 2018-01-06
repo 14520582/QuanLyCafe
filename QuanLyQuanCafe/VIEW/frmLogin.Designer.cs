@@ -32,12 +32,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnDangNhap = new DevExpress.XtraEditors.SimpleButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtMatKhau = new DevExpress.XtraEditors.TextEdit();
             this.txtTaiKhoan = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaiKhoan.Properties)).BeginInit();
@@ -77,6 +77,22 @@
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
+            // label4
+            // 
+            this.label4.Image = global::QuanLyQuanCafe.Properties.Resources.User_Interface_Password_icon;
+            this.label4.Location = new System.Drawing.Point(26, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(23, 23);
+            this.label4.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.Image = global::QuanLyQuanCafe.Properties.Resources.user_icon;
+            this.label3.Location = new System.Drawing.Point(26, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 23);
+            this.label3.TabIndex = 10;
+            // 
             // txtMatKhau
             // 
             this.txtMatKhau.Location = new System.Drawing.Point(113, 49);
@@ -109,22 +125,6 @@
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Tài khoản";
-            // 
-            // label4
-            // 
-            this.label4.Image = global::QuanLyQuanCafe.Properties.Resources.User_Interface_Password_icon;
-            this.label4.Location = new System.Drawing.Point(26, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 23);
-            this.label4.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.Image = global::QuanLyQuanCafe.Properties.Resources.user_icon;
-            this.label3.Location = new System.Drawing.Point(26, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 23);
-            this.label3.TabIndex = 10;
             // 
             // frmLogin
             // 

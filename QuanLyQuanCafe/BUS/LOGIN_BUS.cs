@@ -14,5 +14,10 @@ namespace QuanLyQuanCafe.BUS
         {
             return LOGIN_DAO.Status(name, password);
         }
+
+        public static int getTypeByName(string name)
+        {
+            return LOGIN_DAO.getTypeByName(name);
+        }
     }
 }

@@ -120,7 +120,7 @@ namespace QuanLyQuanCafe.VIEW
 
         private Boolean CheckInvalidMonth(int month, int year)
         {
-            if (year > current.Year)
+            if (year > current.Year || year < 2000 || month > 12 || month < 1)
                 return false;
             if (year == current.Year && month > current.Month)
                 return false;

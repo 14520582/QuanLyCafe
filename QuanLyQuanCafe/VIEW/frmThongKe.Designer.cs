@@ -29,8 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongKe));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SeriesPoint seriesPoint1 = new DevExpress.XtraCharts.SeriesPoint("0", new object[] {
+            ((object)(0.1D))});
+            DevExpress.XtraCharts.SeriesPoint seriesPoint2 = new DevExpress.XtraCharts.SeriesPoint("1", new object[] {
+            ((object)(6.6D))});
+            DevExpress.XtraCharts.SeriesPoint seriesPoint3 = new DevExpress.XtraCharts.SeriesPoint("2", new object[] {
+            ((object)(7.6D))});
+            DevExpress.XtraCharts.SeriesPoint seriesPoint4 = new DevExpress.XtraCharts.SeriesPoint("3", new object[] {
+            ((object)(7.4D))});
+            DevExpress.XtraCharts.SeriesPoint seriesPoint5 = new DevExpress.XtraCharts.SeriesPoint("4", new object[] {
+            ((object)(7.3D))});
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nUDsl = new System.Windows.Forms.NumericUpDown();
@@ -41,19 +52,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnThongKe = new DevExpress.XtraEditors.SimpleButton();
             this.cbxLoai = new System.Windows.Forms.ComboBox();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.chart1 = new DevExpress.XtraCharts.ChartControl();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUDsl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudYear)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -145,7 +158,7 @@
             // 
             this.nudYear.Location = new System.Drawing.Point(301, 24);
             this.nudYear.Maximum = new decimal(new int[] {
-            2020,
+            2300,
             0,
             0,
             0});
@@ -189,26 +202,13 @@
             this.cbxLoai.Items.AddRange(new object[] {
             "Doanh thu",
             "Top 10 SP bán chạy nhất",
-            "Sản phẩm bán không chạy",
-            "Sản phẩm không bán được"});
+            "Sản phẩm bán không chạy"});
             this.cbxLoai.Location = new System.Drawing.Point(73, 23);
             this.cbxLoai.Name = "cbxLoai";
             this.cbxLoai.Size = new System.Drawing.Size(153, 21);
             this.cbxLoai.TabIndex = 17;
             this.cbxLoai.Text = "Doanh thu";
             this.cbxLoai.SelectedIndexChanged += new System.EventHandler(this.cbxLoai_SelectedIndexChanged);
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(32, 107);
-            this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(732, 328);
-            this.chart1.TabIndex = 2;
-            this.chart1.Text = "chart1";
             // 
             // gridControl1
             // 
@@ -235,6 +235,7 @@
             this.gridColumn1.Caption = "Mã món";
             this.gridColumn1.FieldName = "IdFood";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             // 
@@ -243,6 +244,7 @@
             this.gridColumn2.Caption = "Tên món";
             this.gridColumn2.FieldName = "Name";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             // 
@@ -251,8 +253,36 @@
             this.gridColumn3.Caption = "Số lượng bán ra";
             this.gridColumn3.FieldName = "TongLuongTieuThu";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
+            // 
+            // chart1
+            // 
+            xyDiagram1.AxisX.NumericScaleOptions.AutoGrid = false;
+            xyDiagram1.AxisX.Title.Text = "Năm";
+            xyDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisY.Title.Text = "Doanh thu";
+            xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            this.chart1.Diagram = xyDiagram1;
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart1.Location = new System.Drawing.Point(0, 84);
+            this.chart1.Name = "chart1";
+            series1.Name = "Series 1";
+            series1.Points.AddRange(new DevExpress.XtraCharts.SeriesPoint[] {
+            seriesPoint1,
+            seriesPoint2,
+            seriesPoint3,
+            seriesPoint4,
+            seriesPoint5});
+            this.chart1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1};
+            this.chart1.Size = new System.Drawing.Size(803, 370);
+            this.chart1.TabIndex = 4;
+            this.chart1.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
+            chartTitle1});
             // 
             // frmThongKe
             // 
@@ -260,20 +290,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(803, 454);
-            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.chart1);
+            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmThongKe";
             this.Text = "Thống kê";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmThongKe_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUDsl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMonth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudYear)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -285,7 +318,6 @@
         private System.Windows.Forms.ComboBox cbxLoai;
         private DevExpress.XtraEditors.SimpleButton btnThongKe;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.NumericUpDown nudYear;
         private System.Windows.Forms.NumericUpDown nUDMonth;
         private System.Windows.Forms.Label label2;
@@ -296,5 +328,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nUDsl;
+        private DevExpress.XtraCharts.ChartControl chart1;
     }
 }

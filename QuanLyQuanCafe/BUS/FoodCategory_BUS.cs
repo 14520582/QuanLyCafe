@@ -25,5 +25,9 @@ namespace QuanLyQuanCafe.BUS
         {
             return FoodCategory_DAO.LoadFoodCategory();
         }
+        public static int isExistedCategory(string Name)
+        {
+            return FoodCategory_DAO.isExistedCategory(Name);
+        }
     }
 }

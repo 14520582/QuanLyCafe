@@ -20,26 +20,33 @@ namespace QuanLyQuanCafe.VIEW
             InitializeComponent();
             nUDMonth.Enabled = false;
             nUDsl.Enabled = false;
+            chart1.Hide();
+            gridControl1.Hide();
         }
-
         private void btnThongKe_Click(object sender, EventArgs e)
         {
             if (cbxLoai.Text == "Top 10 SP bán chạy nhất")
             {
                 chart1.Show();
                 gridControl1.Hide();
-                chart1.Series.Clear();
+                chart1.Series[0].Points.Clear();
+                XYDiagram axs = (XYDiagram)chart1.Diagram;
+                axs.AxisX.Title.Text = "Sản phẩm";
+                axs.AxisY.Title.Text = "Số lượng";
+                axs.AxisX.Title.Visible = true;
+                axs.AxisY.Title.Visible = true;
+                chart1.Series[0].LegendText = "Số lượng";
+                chart1.Titles[0].Text = "Top 10 món bán chạy nhất tại quán tháng " + nUDMonth.Text + "/" + nudYear.Text;
                 DataTable dtb = Bill_BUS.Top10Products(int.Parse(nUDMonth.Text), int.Parse(nudYear.Text));
                 if (dtb.Rows.Count > 0)
                 {
-                    chart1.Series.Add("Số Lượng Bán");
                     for (int i = 0; i < dtb.Rows.Count; i++)
                     {
-                        chart1.Series["Số Lượng Bán"].Points.AddXY(dtb.Rows[i][0], dtb.Rows[i][1]);
+                        chart1.Series[0].Points.Add(new SeriesPoint(dtb.Rows[i][0], dtb.Rows[i][1]));
                     }
                 }
                 else
-                    MessageBox.Show("Không có dữ liệu để thống kê ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Không có dữ liệu để thống kê năm ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else if (cbxLoai.Text == "Sản phẩm bán không chạy")
@@ -48,52 +55,41 @@ namespace QuanLyQuanCafe.VIEW
                 chart1.Hide();
                 gridControl1.DataSource = Bill_BUS.SplumpProducts(int.Parse(nUDMonth.Text), int.Parse(nudYear.Text), int.Parse(nUDsl.Text));
             }
-            else if (cbxLoai.Text == "Sản phẩm không bán được")
-            {
-                gridControl1.Show();
-                chart1.Hide();
-                gridControl1.DataSource = Bill_BUS.UnmarketableProducts(int.Parse(nUDMonth.Text), int.Parse(nudYear.Text));
-            }
+            //else if (cbxLoai.Text == "Sản phẩm không bán được")
+            //{
+            //    gridControl1.Show();
+            //    chart1.Hide();
+            //    gridControl1.DataSource = Bill_BUS.UnmarketableProducts(int.Parse(nUDMonth.Text), int.Parse(nudYear.Text));
+            //}
             else
             {
                 chart1.Show();
                 gridControl1.Hide();
-                chart1.Series.Clear();
-                DataTable dtb = Bill_DAO.StatisticByRevenue(int.Parse(nudYear.Text));
+                chart1.Series[0].Points.Clear();
+                XYDiagram axs = (XYDiagram)chart1.Diagram;
+                axs.AxisX.Title.Text = "Tháng";
+                axs.AxisY.Title.Text = "Doanh thu (VNĐ)";
+                axs.AxisX.Title.Visible = true;
+                axs.AxisY.Title.Visible = true;
+                chart1.Series[0].LegendText = "Doanh thu (VNĐ)";
+                chart1.Titles[0].Text = "Doanh thu năm " + nudYear.Text;
+                DataTable dtb = Bill_BUS.StatisticByRevenue(int.Parse(nudYear.Text));
                 if (dtb.Rows.Count > 0)
                 {
-                    chart1.Series.Add("Doanh thu");
-                    int x, y;
-                    int j = 1;
-                    for (int i = 0; i < dtb.Rows.Count; i++)
+                    int j = 0;
+                    for(int i = 0; i < 12; i++)
                     {
-                        x = (int)dtb.Rows[i][0];
-                        y = (int)dtb.Rows[i][1];
-
-                        if (x == j)
+                        int value = 0;
+                        if (j < dtb.Rows.Count)
                         {
-                            chart1.Series["Doanh thu"].Points.AddXY(x, y);
-                            j++;
-                        }
-                        else
-                        {
-
-                            for (; j < x; j++)
+                            int x = (int)dtb.Rows[j][0];
+                            if (x == i + 1)
                             {
-                                chart1.Series["Doanh thu"].Points.AddXY(j, 0);
+                                value = (int)dtb.Rows[j][1];
+                                j++;
                             }
-
-                            chart1.Series["Doanh thu"].Points.AddXY(x, y);
-                            j++;
-
                         }
-                    }
-                    if (j < 13)
-                    {
-                        for (; j < 13; j++)
-                        {
-                            chart1.Series["Doanh thu"].Points.AddXY(j, 0);
-                        }
+                        chart1.Series[0].Points.Add(new SeriesPoint("Tháng " + (i+1), value));
                     }
                 }
                 else
@@ -131,12 +127,17 @@ namespace QuanLyQuanCafe.VIEW
                 nUDMonth.Enabled = true;
             }
 
-            if (cbxLoai.Text == "Sản phẩm không bán được")
-            {
-                nUDsl.Enabled = false;
-                nUDMonth.Enabled = true;
-            }
+            //if (cbxLoai.Text == "Sản phẩm không bán được")
+            //{
+            //    nUDsl.Enabled = false;
+            //    nUDMonth.Enabled = true;
+            //}
             
+        }
+
+        private void frmThongKe_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

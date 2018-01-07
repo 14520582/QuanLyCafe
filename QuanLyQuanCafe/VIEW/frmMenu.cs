@@ -254,18 +254,24 @@ namespace QuanLyQuanCafe.VIEW
   
 
         private void btThemLoai_Click(object sender, EventArgs e)
-        {           
-
-            try
+        {
+            if (FoodCategory_BUS.isExistedCategory(tbLoaiMoi.Text.Trim()) == 1)
             {
-                FoodCategory_BUS.AddFoodCategory(tbLoaiMoi.Text);
-                LoadFood();
-                MessageBox.Show("Thêm loại mới thành công");
-                tbLoaiMoi.Text = "";
+                MessageBox.Show("Loại này đã tồn tại.");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Thêm thất bại");
+                try
+                {
+                    FoodCategory_BUS.AddFoodCategory(tbLoaiMoi.Text);
+                    LoadFood();
+                    MessageBox.Show("Thêm loại mới thành công");
+                    tbLoaiMoi.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Thêm thất bại");
+                }
             }
         }
     }

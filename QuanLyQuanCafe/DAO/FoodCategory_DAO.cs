@@ -37,7 +37,20 @@ namespace QuanLyQuanCafe.DAO
             cnn.Close();
             return idCategory;
         }
-
+        public static int isExistedCategory(string name)
+        {
+            SqlConnection cnn = ConnectToSQL.Connect();
+            SqlCommand cmd = new SqlCommand("isExistedCategory", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Category", SqlDbType.NVarChar, 100);
+            cmd.Parameters.Add("@Result", SqlDbType.Int).Direction = ParameterDirection.Output;
+            cmd.Parameters["@Category"].Value = name;
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            int kq = Convert.ToInt32(cmd.Parameters["@Result"].Value);
+            cnn.Close();
+            return kq;
+        }
         public static void AddFoodCategory(string NameCategory)
         {
             SqlConnection cnn = ConnectToSQL.Connect();

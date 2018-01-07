@@ -203,9 +203,9 @@
             this.btThemLoai.Appearance.Options.UseFont = true;
             this.btThemLoai.Appearance.Options.UseForeColor = true;
             this.btThemLoai.Image = ((System.Drawing.Image)(resources.GetObject("btThemLoai.Image")));
-            this.btThemLoai.Location = new System.Drawing.Point(194, 26);
+            this.btThemLoai.Location = new System.Drawing.Point(194, 25);
             this.btThemLoai.Name = "btThemLoai";
-            this.btThemLoai.Size = new System.Drawing.Size(27, 24);
+            this.btThemLoai.Size = new System.Drawing.Size(24, 24);
             this.btThemLoai.TabIndex = 21;
             this.btThemLoai.Click += new System.EventHandler(this.btThemLoai_Click);
             // 
@@ -231,7 +231,7 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(235, 210);
             this.groupControl1.TabIndex = 23;
-            this.groupControl1.Text = "Thức uống";
+            this.groupControl1.Text = "Thông tin món";
             // 
             // cbLoai
             // 
@@ -281,7 +281,7 @@
             // tbDG
             // 
             this.tbDG.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDG.Location = new System.Drawing.Point(89, 114);
+            this.tbDG.Location = new System.Drawing.Point(91, 114);
             this.tbDG.Name = "tbDG";
             this.tbDG.Size = new System.Drawing.Size(132, 23);
             this.tbDG.TabIndex = 24;
@@ -329,7 +329,7 @@
             this.btHuy.Appearance.Options.UseFont = true;
             this.btHuy.Appearance.Options.UseForeColor = true;
             this.btHuy.Image = ((System.Drawing.Image)(resources.GetObject("btHuy.Image")));
-            this.btHuy.Location = new System.Drawing.Point(118, 177);
+            this.btHuy.Location = new System.Drawing.Point(120, 177);
             this.btHuy.Name = "btHuy";
             this.btHuy.Size = new System.Drawing.Size(103, 24);
             this.btHuy.TabIndex = 11;
@@ -357,7 +357,7 @@
             this.btXoa.Appearance.Options.UseFont = true;
             this.btXoa.Appearance.Options.UseForeColor = true;
             this.btXoa.Image = ((System.Drawing.Image)(resources.GetObject("btXoa.Image")));
-            this.btXoa.Location = new System.Drawing.Point(118, 147);
+            this.btXoa.Location = new System.Drawing.Point(120, 147);
             this.btXoa.Name = "btXoa";
             this.btXoa.Size = new System.Drawing.Size(103, 24);
             this.btXoa.TabIndex = 9;

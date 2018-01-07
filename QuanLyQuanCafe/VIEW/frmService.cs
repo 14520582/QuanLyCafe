@@ -379,6 +379,10 @@ namespace QuanLyQuanCafe.VIEW
         }
         private void btnPay_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Bạn muốn in hóa đơn?", "Xác Nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                btnPrint_Click(sender, e);
+            }
             billInfo.Rows.Clear();
             Bill_BUS.EditStatusOfBill(currentIdBill, 1);
             if (tableofbill.Rows.Count < 1)

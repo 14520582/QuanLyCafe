@@ -151,10 +151,10 @@
             // dgvBan
             // 
             this.dgvBan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvBan.Location = new System.Drawing.Point(2, 21);
+            this.dgvBan.Location = new System.Drawing.Point(2, 20);
             this.dgvBan.MainView = this.gridView1;
             this.dgvBan.Name = "dgvBan";
-            this.dgvBan.Size = new System.Drawing.Size(799, 483);
+            this.dgvBan.Size = new System.Drawing.Size(799, 484);
             this.dgvBan.TabIndex = 10;
             this.dgvBan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -253,6 +253,7 @@
             // cbxTinhTrang
             // 
             this.cbxTinhTrang.DisplayMember = "Trống";
+            this.cbxTinhTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTinhTrang.FormattingEnabled = true;
             this.cbxTinhTrang.Items.AddRange(new object[] {
             "Trống",
@@ -261,7 +262,6 @@
             this.cbxTinhTrang.Name = "cbxTinhTrang";
             this.cbxTinhTrang.Size = new System.Drawing.Size(110, 21);
             this.cbxTinhTrang.TabIndex = 16;
-            this.cbxTinhTrang.Text = "Trống";
             this.cbxTinhTrang.SelectedIndexChanged += new System.EventHandler(this.cbxTinhTrang_SelectedIndexChanged);
             this.cbxTinhTrang.ValueMemberChanged += new System.EventHandler(this.cbxTinhTrang_ValueMemberChanged);
             // 

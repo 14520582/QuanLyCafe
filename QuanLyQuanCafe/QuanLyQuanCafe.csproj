@@ -193,23 +193,11 @@
     <Compile Include="VIEW\frmThongKe.Designer.cs">
       <DependentUpon>frmThongKe.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Ngan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VIEW\Ngan.Designer.cs">
-      <DependentUpon>Ngan.cs</DependentUpon>
-    </Compile>
     <Compile Include="VIEW\Receipt.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VIEW\Receipt.Designer.cs">
       <DependentUpon>Receipt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VIEW\Tram.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VIEW\Tram.Designer.cs">
-      <DependentUpon>Tram.cs</DependentUpon>
     </Compile>
     <Compile Include="VIEW\Report.cs">
       <SubType>Component</SubType>
@@ -259,17 +247,11 @@
     <EmbeddedResource Include="VIEW\frmThongKe.resx">
       <DependentUpon>frmThongKe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Ngan.resx">
-      <DependentUpon>Ngan.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="VIEW\Receipt.resx">
       <DependentUpon>Receipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Tram.resx">
-      <DependentUpon>Tram.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

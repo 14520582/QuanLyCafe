@@ -64,9 +64,29 @@ namespace QuanLyQuanCafe.VIEW
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (flag == 1) //thêm
+            if (txtBan.Text.Trim() != "" && txtViTri.Text.Trim() != "")
             {
-                if(Table_BUS.CheckValidTable(txtBan.Text) == 1)
+                if (flag == 1) //thêm
+                {
+                    if (Table_BUS.CheckValidTable(txtBan.Text) == 1)
+                    {
+                        string status;
+                        if (cbxTinhTrang.Text == "Trống")
+                        {
+                            status = "0";
+                        }
+                        else
+                            status = "1";
+                        Table_DTO table = new Table_DTO(txtBan.Text, txtViTri.Text, status);
+                        Table_BUS.AddTable(table);
+                        MessageBox.Show("Lưu thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã Tồn tại bàn " + txtBan.Text);
+                    }
+                }
+                else //sửa
                 {
                     string status;
                     if (cbxTinhTrang.Text == "Trống")
@@ -75,40 +95,24 @@ namespace QuanLyQuanCafe.VIEW
                     }
                     else
                         status = "1";
-                    Table_DTO table = new Table_DTO(txtBan.Text, txtViTri.Text, status);                  
-                    Table_BUS.AddTable(table);
-                    MessageBox.Show("Lưu thành công");
-                }
-                else
-                {
-                    MessageBox.Show("Đã Tồn tại bàn " + txtBan.Text );
-                }
-            }
-            else //sửa
-            {
-                string status;
-                if (cbxTinhTrang.Text == "Trống")
-                {
-                    status = "0";
-                }
-                else
-                    status  = "1";
-                DataRow row = gridView1.GetDataRow(gridView1.FocusedRowHandle);
-                Table_DTO table = new Table_DTO(txtBan.Text, txtViTri.Text, status);
-                Table_BUS.EditTable(table, row[0].ToString());
-                MessageBox.Show("Sửa thành công");
+                    DataRow row = gridView1.GetDataRow(gridView1.FocusedRowHandle);
+                    Table_DTO table = new Table_DTO(txtBan.Text, txtViTri.Text, status);
+                    Table_BUS.EditTable(table, row[0].ToString());
+                    MessageBox.Show("Sửa thành công");
 
-            }
-            dgvBan.DataSource = Table_BUS.LoadTable();
-            bindingData();
-            txtBan.ReadOnly = true;
-            txtViTri.ReadOnly = true;
-            cbxTinhTrang.Enabled = false;
-            txtSoLuong.Text = Table_BUS.CountTable().ToString();
-            btnLuu.Enabled = false;
-            btnThem.Enabled = true;
-            btnSua.Enabled = true;
-            btnXoa.Enabled = true;
+                }
+                dgvBan.DataSource = Table_BUS.LoadTable();
+                bindingData();
+                txtBan.ReadOnly = true;
+                txtViTri.ReadOnly = true;
+                cbxTinhTrang.Enabled = false;
+                txtSoLuong.Text = Table_BUS.CountTable().ToString();
+                btnLuu.Enabled = false;
+                btnThem.Enabled = true;
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
+            }else
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin");
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

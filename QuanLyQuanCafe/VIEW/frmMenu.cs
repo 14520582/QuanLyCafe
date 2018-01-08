@@ -127,78 +127,93 @@ namespace QuanLyQuanCafe.VIEW
             }
             else
             {
-                if (flagThem == 1) // Chọn lưu
+                if (tbTen.Text.Trim() != "" && tbDG.Text.Trim() != "")
                 {
-                    flagThem = 0;
-                    btThem.Text = "Thêm";
-                    tbTen.ReadOnly = true;
-                    tbDG.ReadOnly = true;
-                    cbDV.Enabled = false;
-                    cbLoai.Enabled = false;
-                    btXoa.Enabled = true;
-                    btSua.Enabled = true;
-                    btHuy.Enabled = false;
-                    Food_DTO food = new Food_DTO(tbTen.Text, FoodCategory_BUS.getIdCategoryByName(cbLoai.Text), FoodUnit_BUS.getIdUnitByName(cbDV.Text), float.Parse(tbDG.Text));
-                    try
+                    if (Food_BUS.isExistedFood(tbTen.Text.Trim()) == 0) // Chọn lưu
                     {
-                        Food_BUS.AddFood(food);
-                        MessageBox.Show("Thêm thành công");
-                    }
-                    catch (Exception ex)
+                        flagThem = 0;
+                        btThem.Text = "Thêm";
+                        tbTen.ReadOnly = true;
+                        tbDG.ReadOnly = true;
+                        cbDV.Enabled = false;
+                        cbLoai.Enabled = false;
+                        btXoa.Enabled = true;
+                        btSua.Enabled = true;
+                        btHuy.Enabled = false;
+                        Food_DTO food = new Food_DTO(tbTen.Text, FoodCategory_BUS.getIdCategoryByName(cbLoai.Text), FoodUnit_BUS.getIdUnitByName(cbDV.Text), float.Parse(tbDG.Text));
+                        try
+                        {
+                            Food_BUS.AddFood(food);
+                            MessageBox.Show("Thêm thành công");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Thêm thất bại");
+                        }
+
+                        dgvMenu.DataSource = Food_BUS.LoadFood();
+                        bindingData();
+                    }else
                     {
-                        MessageBox.Show("Thêm thất bại");
+                        MessageBox.Show("Món này đã tồn tại.");
                     }
-
-                    dgvMenu.DataSource = Food_BUS.LoadFood();
-                    bindingData();
-
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
                 }
             }
         }
 
         private void btSua_Click(object sender, EventArgs e)
         {
-            if (flagSua == 0) // chọn sửa
-            {
-                flagSua = 1;
-                btSua.Text = "Lưu";
-                tbTen.ReadOnly = false;
-                tbDG.ReadOnly = false;
-                cbDV.Enabled = true;
-                cbLoai.Enabled = true;
-                btXoa.Enabled = false;
-                btThem.Enabled = false;
-                btHuy.Enabled = true;
-            }
-            else
-            {
-                if (flagSua == 1) // Chọn lưu
+                if (flagSua == 0) // chọn sửa
                 {
-                    flagSua = 0;
-                    btSua.Text = "Sửa";
-                    tbTen.ReadOnly = true;
-                    tbDG.ReadOnly = true;
-                    cbDV.Enabled = false;
-                    cbLoai.Enabled = false;
-                    btXoa.Enabled = true;
-                    btThem.Enabled = true;
-                    btHuy.Enabled = false;
-                    Food_DTO food = new Food_DTO(Int32.Parse(tbMa.Text), tbTen.Text, FoodCategory_BUS.getIdCategoryByName(cbLoai.Text), FoodUnit_BUS.getIdUnitByName(cbDV.Text), float.Parse(tbDG.Text));
-                    try
-                    {
-                        Food_BUS.EditFood(food);
-                        MessageBox.Show("Cập nhật hoàn tất");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Cập nhật thất bại");
-                    }
-
-                    dgvMenu.DataSource = Food_BUS.LoadFood();
-                    bindingData();
-
+                    flagSua = 1;
+                    btSua.Text = "Lưu";
+                    tbTen.ReadOnly = false;
+                    tbDG.ReadOnly = false;
+                    cbDV.Enabled = true;
+                    cbLoai.Enabled = true;
+                    btXoa.Enabled = false;
+                    btThem.Enabled = false;
+                    btHuy.Enabled = true;
                 }
-            }
+                else
+                {
+                    if (tbTen.Text.Trim() != "" && tbDG.Text.Trim() != "")
+                    {
+                        if (flagSua == 1) // Chọn lưu
+                        {
+                            flagSua = 0;
+                            btSua.Text = "Sửa";
+                            tbTen.ReadOnly = true;
+                            tbDG.ReadOnly = true;
+                            cbDV.Enabled = false;
+                            cbLoai.Enabled = false;
+                            btXoa.Enabled = true;
+                            btThem.Enabled = true;
+                            btHuy.Enabled = false;
+                            Food_DTO food = new Food_DTO(Int32.Parse(tbMa.Text), tbTen.Text, FoodCategory_BUS.getIdCategoryByName(cbLoai.Text), FoodUnit_BUS.getIdUnitByName(cbDV.Text), float.Parse(tbDG.Text));
+                            try
+                            {
+                                Food_BUS.EditFood(food);
+                                MessageBox.Show("Cập nhật hoàn tất");
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Cập nhật thất bại");
+                            }
+
+                            dgvMenu.DataSource = Food_BUS.LoadFood();
+                            bindingData();
+
+                        }
+                    }else
+                    {
+                        MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
+                    }
+                }
         }
 
         private void btHuy_Click(object sender, EventArgs e)
@@ -272,6 +287,14 @@ namespace QuanLyQuanCafe.VIEW
                 {
                     MessageBox.Show("Thêm thất bại");
                 }
+            }
+        }
+
+        private void tbDG_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

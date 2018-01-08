@@ -235,6 +235,7 @@
             // 
             // cbLoai
             // 
+            this.cbLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLoai.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLoai.FormattingEnabled = true;
             this.cbLoai.Location = new System.Drawing.Point(63, 49);
@@ -244,6 +245,7 @@
             // 
             // cbDV
             // 
+            this.cbDV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDV.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDV.FormattingEnabled = true;
             this.cbDV.Location = new System.Drawing.Point(90, 81);
@@ -285,6 +287,7 @@
             this.tbDG.Name = "tbDG";
             this.tbDG.Size = new System.Drawing.Size(132, 23);
             this.tbDG.TabIndex = 24;
+            this.tbDG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDG_KeyPress);
             // 
             // label4
             // 

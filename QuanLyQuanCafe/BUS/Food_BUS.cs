@@ -31,11 +31,10 @@ namespace QuanLyQuanCafe.BUS
         {
             Food_DAO.DeleteFood(idFood);
         }
-
-
-
-       
-
+        public static int isExistedFood(string Name)
+        {
+            return Food_DAO.isExistedFood(Name);
+        }
         public static DataTable SearchByName(String name)
         {
             return Food_DAO.SearchByName(name);
